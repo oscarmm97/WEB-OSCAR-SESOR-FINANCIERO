@@ -288,43 +288,12 @@ summary { cursor: pointer; color: var(--accent); }
 .pr strong { display: block; font-family: var(--font-display); font-size: 40px; line-height: 1.1; color: var(--accent); }
 .pr span { color: var(--muted); font-size: 15px; display: block; margin-top: 4px; max-width: 44ch; }
 
-/* calendario */
-.cal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.cal-nav { display: flex; align-items: center; gap: 10px; }
-.cal-nav button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font-size: 18px; cursor: pointer; }
-.cal-nav button:disabled { opacity: 0.4; cursor: default; }
-.cal-nav strong { font-family: var(--font-display); font-size: 19px; min-width: 190px; text-align: center; }
-.cal-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
-.cal-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.cal-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1.5px solid var(--accent); }
-.cal-legend i.t { background: var(--line); border-color: var(--line); }
-.cal-legend i.m { background: var(--accent); }
-.cal-status { margin-top: 14px; font-size: 14px; padding: 10px 14px; border-radius: 10px; background: var(--tint); }
-.cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 16px; }
-.cal-grid > * { min-width: 0; }
-.day { border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: var(--bg); }
-.day h4 { margin: 0 0 8px; font-family: var(--font-display); font-size: 16px; text-align: center; text-transform: capitalize; }
-.day h4 small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 12px; color: var(--muted); text-transform: none; }
-.slot { display: block; width: 100%; margin-top: 6px; padding: 8px 6px; border-radius: 8px; border: 1.5px solid var(--accent); background: var(--surface); color: var(--accent); font: 700 14px var(--font-body); cursor: pointer; font-variant-numeric: tabular-nums; }
-.slot:hover:not(:disabled) { background: var(--tint); }
-.slot.sel { background: var(--accent); color: var(--bg); }
-.slot.taken, .slot.past { background: var(--line); border-color: var(--line); color: var(--muted); cursor: default; text-decoration: line-through; }
-.slot.mine { background: var(--ok-bg); border-color: var(--ok-fg); color: var(--ok-fg); text-decoration: none; }
-.slot.blk { background: var(--hi-bg); border-color: var(--hi-fg); color: var(--hi-fg); text-decoration: none; }
-.cal-form { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
-.cal-form .pick { font-family: var(--font-display); font-size: 21px; }
-.chk { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); margin-top: 14px; }
-.chk input { margin-top: 4px; accent-color: var(--accent); }
+/* reserva de citas (Google Calendar) */
+.booking { margin-top: 28px; padding: 0; overflow: hidden; }
+.booking iframe { display: block; width: 100%; height: 720px; border: 0; background: var(--surface); }
+.book-alt { display: flex; justify-content: space-between; align-items: center; gap: 12px 20px; flex-wrap: wrap; margin-top: 16px; font-size: 15px; color: var(--muted); }
+.book-alt b { color: var(--fg); white-space: nowrap; }
 .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-.msg { margin-top: 14px; font-size: 15px; font-weight: 700; }
-.msg.ok { color: var(--ok-fg); }
-.msg.err { color: var(--hi-fg); }
-.mine-list, .own-list { margin-top: 20px; font-size: 15px; }
-.mine-list h4, .own-list h4 { font-family: var(--font-display); font-size: 18px; margin: 0 0 8px; }
-.mrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 0; border-top: 1px solid var(--line); }
-.mrow > div { min-width: 0; }
-.mrow small { color: var(--muted); display: block; }
-
 /* contacto y privacidad */
 .contact { margin-top: 28px; display: grid; gap: 8px; font-size: 17px; }
 .contact div { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
@@ -379,7 +348,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .canales, .trust { grid-template-columns: 1fr 1fr; }
   .tipos, .facts { grid-template-columns: 1fr; }
 .fields.f4 { grid-template-columns: 1fr 1fr; }
-  .cal-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .booking iframe { height: 900px; }
   .hero-svc { padding: 32px 22px; }
   .hero-logo { order: -1; justify-self: start; width: 96px; }
   .rep-pages { grid-template-columns: repeat(3, 1fr); }
@@ -875,33 +844,14 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   <section id="cita" class="band">
     <span class="eyebrow">Cita</span>
     <h2>Reserva una reunión</h2>
-    <p class="intro">Elige una franja libre. Las reuniones duran una hora, de lunes a viernes, y puedes hacerlas por videollamada o en Barcelona. Horario de España.</p>
-    <div class="card" style="margin-top:28px">
-      <div class="cal-top">
-        <div class="cal-nav"><button type="button" id="cal-prev" aria-label="Semana anterior">‹</button><strong id="cal-range" aria-live="polite"></strong><button type="button" id="cal-next" aria-label="Semana siguiente">›</button></div>
-        <div class="cal-legend"><span><i></i>Libre</span><span><i class="t"></i>Ocupada</span><span><i class="m"></i>Tu cita</span></div>
-      </div>
-      <p class="cal-status" id="cal-status" aria-live="polite">Cargando disponibilidad…</p>
-      <div class="cal-grid" id="cal-grid"></div>
-      <form class="cal-form" id="cal-form" hidden>
-        <div class="eyebrow">Tu reserva</div>
-        <p class="pick" id="cal-pick"></p>
-        <div class="fields">
-          <div class="field"><label for="c-nombre">Nombre y apellidos</label><input id="c-nombre" type="text" autocomplete="name" maxlength="80"></div>
-          <div class="field"><label for="c-motivo">Motivo</label><select id="c-motivo"><option>Primera llamada</option><option>Hipoteca</option><option>Inversiones</option><option>Finanzas y patrimonio</option></select></div>
-          <div class="field"><label for="c-tel">Teléfono</label><input id="c-tel" type="tel" autocomplete="tel" maxlength="30"></div>
-          <div class="field"><label for="c-mail">Correo</label><input id="c-mail" type="email" autocomplete="email" maxlength="80"></div>
-        </div>
-        <label class="chk" for="c-ok"><input id="c-ok" type="checkbox"><span>He leído la <a href="#privacidad">política de privacidad</a> y acepto que usen mis datos para gestionar esta cita.</span></label>
-        <div class="btns"><button type="submit" class="btn primary" id="c-send">Confirmar cita</button><a class="btn ghost" id="c-mailto" href="#" hidden>Pedirla por correo</a><button type="button" class="btn ghost" id="c-cancel">Cancelar</button></div>
-      </form>
-      <p class="msg" id="cal-msg" role="status"></p>
-      <div class="mine-list" id="cal-mine" hidden></div>
-      <div class="own-list" id="cal-owner" hidden></div>
+    <p class="intro">Elige el día y la hora que mejor te vengan entre los huecos libres de mi agenda. Las reuniones son por videollamada (Google Meet) o en Barcelona. Al reservar recibirás un correo de confirmación con todos los detalles.</p>
+    <div class="card booking">
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3Ii2KRG1Il4US6fHVjP3qhUKrJpZl7O92xQ9n10qE2JjoFPPJSt28JI1pcLjNQfIEHVo1v87XZ?gv=true" title="Reserva una reunión con Oscar Muñoz" loading="lazy"></iframe>
     </div>
-    <p class="note">Indica al menos un teléfono o un correo para que pueda confirmarte. Tus datos solo los ve el asesor.</p>
+    <div class="book-alt">
+      <span>¿No ves bien el calendario? <a href="https://calendar.app.google/YrnecdspEXGz8XxS6" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a>. Si ninguna hora te encaja, escríbeme a <b>oscarmunozmonedero@gmail.com</b> o llámame al <b>+34 633 166 312</b>.</span>
+    </div>
   </section>
-
   <section id="contacto">
     <span class="eyebrow">Contacto</span>
     <h2>Hablemos de tu caso</h2>
@@ -1144,165 +1094,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   function all() { calc(); capacity(); compare(); renderSave(); renderReal(); }
   all();
   var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { calc(); renderSave(); }, 150); });
-
-  /* ---------- calendario de citas ---------- */
-  var HORAS = ["10:00", "11:00", "12:00", "13:00", "16:00", "17:00", "18:00"];
-  var DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
-  var MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-  var db = null, usr = null, uid = null, canWrite = null, isOwner = false;
-  var taken = {}, mine = {}, owned = [], sel = null, week = 0, busy = false;
-  function p2(n) { return n < 10 ? "0" + n : "" + n; }
-  function sid(d, h) { return d.getFullYear() + "-" + p2(d.getMonth() + 1) + "-" + p2(d.getDate()) + "_" + h.replace(":", ""); }
-  function parseSid(s) { var a = s.split("_"), d = a[0].split("-"); return { d: new Date(+d[0], +d[1] - 1, +d[2]), h: a[1].slice(0, 2) + ":" + a[1].slice(2) }; }
-  function label(s) { var x = parseSid(s); return DIAS[x.d.getDay()] + " " + x.d.getDate() + " de " + MESES[x.d.getMonth()] + ", " + x.h; }
-  var minDate = (function () { var t = new Date(); t.setHours(0, 0, 0, 0); t.setDate(t.getDate() + 1); while (t.getDay() === 0 || t.getDay() === 6) t.setDate(t.getDate() + 1); return t; })();
-  var monday0 = (function () { var t = new Date(minDate); t.setDate(t.getDate() - ((t.getDay() + 6) % 7)); return t; })();
-  var MAXW = 3;
-  function setMsg(t, kind) { var m = $("cal-msg"); m.textContent = t || ""; m.className = "msg" + (kind ? " " + kind : ""); }
-  function status() {
-    var s = $("cal-status");
-    if (!db) s.textContent = "Disponibilidad orientativa: esta vista no puede mostrar las reservas en tiempo real. Elige una franja y te preparo el mensaje para pedirla por correo.";
-    else if (canWrite === false) s.textContent = "Ves las franjas libres en tiempo real. Con tu acceso actual no puedes reservar desde aquí: elige una franja y pídemela por correo.";
-    else if (isOwner) s.textContent = "Vista del asesor: pulsa una franja libre para bloquearla o desbloquearla. Abajo ves las citas con los datos de cada persona.";
-    else s.textContent = "Disponibilidad en tiempo real. Elige una franja libre para reservar.";
-  }
-  function renderCal() {
-    var g = $("cal-grid"), html = "", i, j, mon = new Date(monday0);
-    mon.setDate(mon.getDate() + week * 7);
-    var fri = new Date(mon); fri.setDate(fri.getDate() + 4);
-    $("cal-range").textContent = mon.getDate() + " " + MESES[mon.getMonth()].slice(0, 3) + " – " + fri.getDate() + " " + MESES[fri.getMonth()].slice(0, 3);
-    $("cal-prev").disabled = week <= 0; $("cal-next").disabled = week >= MAXW;
-    for (i = 0; i < 5; i++) {
-      var d = new Date(mon); d.setDate(d.getDate() + i);
-      var past = d < minDate;
-      html += '<div class="day"><h4>' + DIAS[d.getDay()] + "<small>" + d.getDate() + " " + MESES[d.getMonth()] + "</small></h4>";
-      for (j = 0; j < HORAS.length; j++) {
-        var id = sid(d, HORAS[j]), cls = "slot", dis = "", txt = HORAS[j], t = taken[id];
-        if (past) { cls += " past"; dis = " disabled"; }
-        else if (mine[id]) { cls += " mine"; txt += " · Tu cita"; if (!isOwner) dis = " disabled"; }
-        else if (t && t.bloqueada) { cls += isOwner ? " blk" : " taken"; if (isOwner) txt += " · Bloqueada"; else dis = " disabled"; }
-        else if (t) { cls += " taken"; if (isOwner) txt += " · Reservada"; if (!isOwner) dis = " disabled"; }
-        else if (sel === id) cls += " sel";
-        if (isOwner && t && !t.bloqueada && !mine[id]) dis = " disabled";
-        html += '<button type="button" class="' + cls + '" data-id="' + id + '"' + dis + ' aria-label="' + label(id) + (cls.indexOf("taken") > -1 ? ", ocupada" : "") + '">' + txt + "</button>";
-      }
-      html += "</div>";
-    }
-    g.innerHTML = html;
-  }
-  function pickSlot(id) {
-    if (isOwner && db) { toggleBlock(id); return; }
-    sel = id; setMsg("");
-    $("cal-form").hidden = false;
-    $("cal-pick").textContent = label(id);
-    var send = $("c-send"), mt = $("c-mailto");
-    var canBook = !!db && canWrite !== false && !!uid;
-    send.hidden = !canBook; mt.hidden = canBook;
-    $("cal-form").scrollIntoView({ block: "nearest", behavior: "smooth" });
-    renderCal(); updateMailto();
-  }
-  function updateMailto() {
-    if (!sel) return;
-    var body = "Hola Oscar, me gustaría reservar una cita el " + label(sel) + ".\n\nNombre: " + $("c-nombre").value + "\nTeléfono: " + $("c-tel").value + "\nCorreo: " + $("c-mail").value + "\nMotivo: " + $("c-motivo").value;
-    $("c-mailto").href = "mailto:oscarmunozmonedero@gmail.com?subject=" + encodeURIComponent("Cita " + label(sel)) + "&body=" + encodeURIComponent(body);
-  }
-  async function book(e) {
-    e.preventDefault();
-    if (busy || !sel || !db || !uid) return;
-    var nombre = $("c-nombre").value.trim(), tel = $("c-tel").value.trim(), mail = $("c-mail").value.trim();
-    if (!nombre) { setMsg("Escribe tu nombre.", "err"); return; }
-    if (!tel && !mail) { setMsg("Indica un teléfono o un correo para poder confirmarte la cita.", "err"); return; }
-    if (!$("c-ok").checked) { setMsg("Debes aceptar la política de privacidad para reservar.", "err"); return; }
-    busy = true; $("c-send").disabled = true; setMsg("Reservando…");
-    var id = sel, ref = db.doc("ocupadas/" + id), done = false;
-    try {
-      var lease = await ref.acquire({ holder: uid, ttlMs: 10000 });
-      if (!lease.acquired) { setMsg("Otra persona está reservando esa franja ahora mismo. Inténtalo en unos segundos.", "err"); return; }
-      var snap = await ref.get(), cur = snap.exists ? snap.data() : null;
-      if (cur && (cur.reservada || cur.bloqueada)) { setMsg("Esa franja acaba de ocuparse. Elige otra.", "err"); return; }
-      await ref.set({ reservada: true });
-      done = true;
-      var rr = db.doc("reservas/" + uid), rs = await rr.get();
-      var citas = rs.exists ? Object.assign({}, (rs.data() || {}).citas || {}) : {};
-      citas[id] = { nombre: nombre, tel: tel, mail: mail, motivo: $("c-motivo").value, creada: new Date().toISOString() };
-      await rr.set({ citas: citas });
-      mine[id] = citas[id]; sel = null;
-      $("cal-form").hidden = true; $("cal-form").reset();
-      setMsg("Cita reservada: " + label(id) + ". Te confirmaré por el medio que has indicado.", "ok");
-      renderMine(); renderCal();
-    } catch (err) {
-      if (done) { try { await ref.delete(); } catch (x) {} }
-      setMsg("No se ha podido completar la reserva. Inténtalo de nuevo o pídemela por correo.", "err");
-    } finally { busy = false; $("c-send").disabled = false; }
-  }
-  async function removeCita(ownerUid, id) {
-    try {
-      var rr = db.doc("reservas/" + ownerUid), rs = await rr.get();
-      if (rs.exists) { var c = Object.assign({}, (rs.data() || {}).citas || {}); delete c[id]; await rr.set({ citas: c }); }
-      await db.doc("ocupadas/" + id).delete();
-      if (ownerUid === uid) delete mine[id];
-      setMsg("Cita cancelada. La franja vuelve a estar libre.", "ok");
-      renderMine(); renderCal();
-    } catch (err) { setMsg("No se ha podido cancelar la cita.", "err"); }
-  }
-  async function toggleBlock(id) {
-    if (!db || taken[id] && !taken[id].bloqueada) return;
-    try {
-      if (taken[id] && taken[id].bloqueada) await db.doc("ocupadas/" + id).delete();
-      else await db.doc("ocupadas/" + id).set({ bloqueada: true });
-    } catch (err) { setMsg("No se ha podido cambiar la franja.", "err"); }
-  }
-  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  function renderMine() {
-    var box = $("cal-mine"), ids = Object.keys(mine).sort();
-    if (isOwner || !ids.length) { box.hidden = true; box.innerHTML = ""; return; }
-    box.hidden = false;
-    box.innerHTML = "<h4>Tus citas</h4>" + ids.map(function (id) { return '<div class="mrow"><div><b>' + esc(label(id)) + "</b><small>" + esc(mine[id].motivo) + '</small></div><button type="button" class="btn ghost small" data-cancel="' + id + '">Cancelar</button></div>'; }).join("");
-  }
-  function renderOwner() {
-    var box = $("cal-owner");
-    if (!isOwner) { box.hidden = true; return; }
-    box.hidden = false;
-    if (!owned.length) { box.innerHTML = "<h4>Citas reservadas</h4><p class='sub'>Todavía no hay citas reservadas.</p>"; return; }
-    owned.sort(function (a, b) { return a.id < b.id ? -1 : 1; });
-    box.innerHTML = "<h4>Citas reservadas</h4>" + owned.map(function (o) {
-      return '<div class="mrow"><div><b>' + esc(label(o.id)) + " · " + esc(o.c.nombre) + "</b><small>" + esc(o.c.motivo) + " · " + esc(o.c.tel || "sin teléfono") + " · " + esc(o.c.mail || "sin correo") + '</small></div><button type="button" class="btn ghost small" data-free="' + o.uid + "|" + o.id + '">Liberar</button></div>';
-    }).join("");
-  }
-  $("cal-prev").addEventListener("click", function () { if (week > 0) { week--; renderCal(); } });
-  $("cal-next").addEventListener("click", function () { if (week < MAXW) { week++; renderCal(); } });
-  $("cal-grid").addEventListener("click", function (e) { var b = e.target.closest ? e.target.closest(".slot") : null; if (b && !b.disabled) pickSlot(b.getAttribute("data-id")); });
-  $("cal-form").addEventListener("submit", book);
-  $("cal-form").addEventListener("input", updateMailto);
-  $("c-cancel").addEventListener("click", function () { sel = null; $("cal-form").hidden = true; setMsg(""); renderCal(); });
-  $("cal-mine").addEventListener("click", function (e) { var id = e.target.getAttribute && e.target.getAttribute("data-cancel"); if (id) removeCita(uid, id); });
-  $("cal-owner").addEventListener("click", function (e) { var v = e.target.getAttribute && e.target.getAttribute("data-free"); if (v) { var a = v.split("|"); removeCita(a[0], a[1]); } });
-  status(); renderCal();
-
-  async function startDb() {
-    var cl = window.claude;
-    if (!cl || !cl.use) return;
-    try { db = await cl.use("db"); } catch (e) { db = null; }
-    try { usr = await cl.use("user"); } catch (e) { usr = null; }
-    if (!db) { status(); return; }
-    try { uid = usr ? await usr.id() : null; } catch (e) { uid = null; }
-    try { isOwner = usr ? !!usr.isOwner() : false; canWrite = usr ? usr.can("data.write") : null; } catch (e) { }
-    status();
-    db.collection("ocupadas").onSnapshot(function (s) {
-      var t = {};
-      s.docs.forEach(function (d) { var x = d.data() || {}; if (x.reservada || x.bloqueada) t[d.id] = x; });
-      taken = t; renderCal();
-    }, function () { db = null; status(); renderCal(); });
-    if (uid && !isOwner) db.doc("reservas/" + uid).onSnapshot(function (s) {
-      mine = s.exists ? Object.assign({}, (s.data() || {}).citas || {}) : {}; renderMine(); renderCal();
-    }, function () { });
-    if (isOwner) db.collection("reservas").onSnapshot(function (s) {
-      var list = [], m = {};
-      s.docs.forEach(function (d) { var c = (d.data() || {}).citas || {}; Object.keys(c).forEach(function (id) { list.push({ uid: d.id, id: id, c: c[id] }); m[id] = c[id]; }); });
-      owned = list; mine = m; renderOwner(); renderCal();
-    }, function () { });
-  }
-  startDb();
 
   $("copy-mail").addEventListener("click", function () {
     var b = this, t = $("mail").textContent;

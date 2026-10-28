@@ -1,7 +1,7 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oscar Muñoz Asesor Financiero</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Lato:wght@400;700&display=swap">
 <style>
 /* Layout: página larga de una columna; hero con titular y tarjeta de perfil; secciones separadas para servicios, hipotecas, inversiones y cita; tarjetas blancas sobre azul muy claro, serif en titulares. */
 :root {
@@ -24,8 +24,8 @@
   --ok-bg: #dff1e6; --ok-fg: #1f6b2e;
   --mid-bg: #fff1cc; --mid-fg: #7a5200;
   --hi-bg: #f8dcdc; --hi-fg: #9b1c1c;
-  --font-display: "Caladea", Cambria, Georgia, "Times New Roman", serif;
-  --font-body: "Lato", Calibri, "Helvetica Neue", Arial, sans-serif;
+  --font-display: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-body: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -67,7 +67,7 @@ button { font-family: inherit; }
 .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
 .mk { width: 30px; height: 30px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--accent); letter-spacing: 0; }
-nav { display: flex; gap: 6px 14px; flex-wrap: wrap; font-size: 13.5px; }
+nav { display: flex; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; }
 nav a { color: var(--fg); text-decoration: none; }
 nav a:hover { color: var(--accent2); }
 nav a.cta-nav { color: var(--accent); font-weight: 700; }
@@ -81,6 +81,11 @@ nav a.cta-nav { color: var(--accent); font-weight: 700; }
 .hero h1 em { font-style: normal; color: var(--accent2); }
 .hero .l1 { font-size: 19px; margin-top: 24px; max-width: 46ch; }
 .hero .l2 { color: var(--muted); margin-top: 12px; max-width: 50ch; font-size: 17px; }
+.hero-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; max-width: 56ch; }
+.hero-points li { position: relative; padding-left: 30px; font-size: 16px; color: var(--muted); }
+.hero-points li::before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); }
+.hero-points li::after { content: ""; position: absolute; left: 6px; top: 6px; width: 4px; height: 8px; border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.hero-points b { color: var(--fg); }
 .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .btn { display: inline-block; font: 700 15px var(--font-body); padding: 12px 22px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
 .btn.primary { background: var(--accent); color: var(--bg); }
@@ -124,8 +129,11 @@ nav a.cta-nav { color: var(--accent); font-weight: 700; }
 .note { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
 /* secciones */
-section { padding-block: 64px; border-top: 1px solid var(--line); scroll-margin-top: 8px; }
-section > .eyebrow { display: block; margin-bottom: 12px; }
+section { padding-block: 80px; scroll-margin-top: 8px; }
+/* franjas alternas a todo el ancho para separar cada apartado */
+section.band { background: var(--surface); box-shadow: 0 0 0 100vmax var(--surface); clip-path: inset(0 -100vmax); }
+section > .eyebrow, .sec-head .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+section > .eyebrow::before, .sec-head .eyebrow::before { content: ""; width: 28px; height: 3px; border-radius: 2px; background: var(--accent2); }
 section > h2 { font-size: clamp(28px, 3.8vw, 40px); max-width: 24ch; }
 .intro { color: var(--muted); max-width: 62ch; margin-top: 14px; font-size: 17px; }
 .callout { background: var(--tint); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 14px; padding: 20px 24px; margin-top: 28px; }
@@ -404,13 +412,18 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 
   <div class="hero">
     <div>
-      <p class="eyebrow">Asesoría financiera privada</p>
-      <h1>Que el dinero deje de ser <em>una preocupación.</em></h1>
-      <p class="l1">Tu hipoteca, tus ahorros y tus inversiones, en manos de una sola persona que se ocupa de todo.</p>
-      <p class="l2">Trabajas todo el mes y no tienes tiempo ni ganas de pelearte con bancos y papeles. Yo lo entiendo, lo comparo y lo gestiono. Tú decides con calma.</p>
+      <p class="eyebrow">Asesoría financiera privada · Barcelona y online</p>
+      <h1>Entiende tu patrimonio y <em>gestiónalo con criterio.</em></h1>
+      <p class="l1">Analizo tus ingresos, gastos, ahorros, deudas e inversiones y te entrego un informe financiero personalizado: qué tienes hoy, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
+      <p class="l2">Y si vas a comprar vivienda, busco y negocio tu hipoteca con varios bancos y me encargo de todos los trámites, de la documentación a la firma en notaría.</p>
+      <ul class="hero-points">
+        <li><b>Informe financiero personalizado</b> con tu patrimonio, presupuesto y próximos pasos.</li>
+        <li><b>Búsqueda y negociación de hipoteca</b> comparando ofertas de varias entidades.</li>
+        <li><b>Todos los trámites gestionados</b>: documentación, ofertas vinculantes (FEIN) y firma en notaría.</li>
+      </ul>
       <div class="cta">
         <a class="btn primary" href="#cita">Reserva una cita</a>
-        <a class="btn ghost" href="#hipotecas">Simula tu hipoteca</a>
+        <a class="btn ghost" href="#informe">Ver un informe de ejemplo</a>
       </div>
     </div>
     <div class="hero-logo">
@@ -424,7 +437,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </div>
 
-  <section id="sobre-mi" style="padding-top:40px">
+  <section id="sobre-mi" class="band">
     <span class="eyebrow">Sobre mí</span>
     <h2>Experiencia y formación</h2>
     <div class="about">
@@ -440,16 +453,16 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
     <h3 class="eyebrow" style="margin-top:40px; font-family:var(--font-body); font-size:11px">Formación universitaria y financiera</h3>
     <div class="edu">
-      <div class="card"><span class="tag">Grado</span><h3>Administración de Empresas</h3><p>Universitat Autònoma de Barcelona · 2015-2019</p></div>
-      <div class="card"><span class="tag">Máster</span><h3>Auditoría y Contabilidad</h3><p>Universidad Abat Oliba CEU · 2020-2021</p></div>
-      <div class="card"><span class="tag">Máster</span><h3>Dirección Financiera</h3><p>EAE Business School · 2021-2022</p></div>
-      <div class="card"><span class="tag">Máster</span><h3>Consultoría Financiera Internacional</h3><p>Euroinnova Business School · 2023-2024</p></div>
-      <div class="card"><span class="tag">Curso de especialización</span><h3>Big Data Analytics</h3><p>ESIC Business School · 2022-2023</p></div>
+      <div class="card"><span class="tag">Grado</span><h3>Administración de Empresas</h3><p>Universitat Autònoma de Barcelona</p></div>
+      <div class="card"><span class="tag">Máster</span><h3>Auditoría y Contabilidad</h3><p>Universidad Abat Oliba CEU</p></div>
+      <div class="card"><span class="tag">Máster</span><h3>Dirección Financiera</h3><p>EAE Business School</p></div>
+      <div class="card"><span class="tag">Máster</span><h3>Consultoría Financiera Internacional</h3><p>Euroinnova Business School</p></div>
+      <div class="card"><span class="tag">Curso de especialización</span><h3>Big Data Analytics</h3><p>ESIC Business School</p></div>
       <div class="card"><span class="tag">Idiomas</span><h3>Castellano y catalán nativos</h3><p>Inglés avanzado (C1) · Alemán básico (A2)</p></div>
     </div>
   </section>
 
-  <section id="servicios" style="border-top:0; padding-top:24px">
+  <section id="servicios">
     <div class="hero-svc">
       <span class="eyebrow" style="display:block; margin-bottom:12px">Servicios</span>
       <h2>Qué hago por ti</h2>
@@ -500,7 +513,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="proceso">
+  <section id="proceso" class="band">
     <span class="eyebrow">El proceso</span>
     <h2>Cómo trabajamos juntos</h2>
     <p class="intro">Un proceso claro, con cada paso explicado antes de darlo. Trabajamos codo con codo: tú decides, yo me ocupo del resto.</p>
@@ -516,7 +529,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 <circle cx="90" cy="70" r="30" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
 <path d="M74 72l16-14 16 14v14H74z" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round"/><rect x="85" y="76" width="10" height="10" fill="var(--accent)"/>
 <circle cx="240" cy="48" r="30" fill="var(--surface)" stroke="var(--s3)" stroke-width="2"/>
-<text x="240" y="59" text-anchor="middle" font-family="Caladea,Georgia,serif" font-size="32" font-weight="700" fill="var(--s3)">€</text>
+<text x="240" y="59" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" fill="var(--s3)">€</text>
 <circle cx="390" cy="70" r="30" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
 <path d="M375 71l11 11 20-22" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M120 90Q165 140 215 190M240 80V150M360 90Q315 140 265 190" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 6" opacity=".55"/>
@@ -565,7 +578,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="hipotecas">
+  <section id="hipotecas" class="band">
     <div class="sec-head"><div>
     <span class="eyebrow">Hipotecas</span>
     <h2>Prueba tu hipoteca antes de pedirla</h2>
@@ -708,7 +721,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 <path d="M60 150 L118 118 L168 86 L222 50 L280 36" fill="none" stroke="var(--s3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M262 34 L284 34 L284 56" fill="none" stroke="var(--s3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="288" cy="130" r="30" fill="#eda100"/><circle cx="288" cy="130" r="22" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/>
-<text x="288" y="141" text-anchor="middle" font-family="Caladea,Georgia,serif" font-size="30" font-weight="700" fill="#fff">€</text>
+<text x="288" y="141" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#fff">€</text>
 <circle cx="276" cy="186" r="20" fill="#eda100" opacity=".8"/><circle cx="306" cy="196" r="14" fill="#eda100" opacity=".6"/>
 </svg></div>
 
@@ -787,7 +800,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     <p class="legal-note">Información educativa. No constituye una recomendación personalizada de inversión ni asesoramiento regulado. Invertir conlleva riesgo, incluida la pérdida del capital.</p>
   </section>
 
-  <section id="actualidad">
+  <section id="actualidad" class="band">
     <div class="sec-head"><div>
     <span class="eyebrow">Actualidad</span>
     <h2>Noticias y datos para estar al día</h2>
@@ -845,7 +858,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     <div class="callout"><span class="eyebrow">Cómo se calcula</span><p>Ejemplo: en una vivienda de 280.000 €, la comisión por la gestión completa es de 1.400 € (el 0,5 %). Como ya has abonado 200 €, al firmar pagas 1.200 € y el total es de 1.400 €. Si no se llega a firmar, solo se cobran los 200 €. El IVA se indica en el acuerdo con cada cliente: según lo acordado, los importes se entienden con IVA o sin él.</p></div>
   </section>
 
-  <section id="cita">
+  <section id="cita" class="band">
     <span class="eyebrow">Cita</span>
     <h2>Reserva una reunión</h2>
     <p class="intro">Elige una franja libre. Las reuniones duran una hora, de lunes a viernes, y puedes hacerlas por videollamada o en Barcelona. Horario de España.</p>
@@ -886,12 +899,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
     <div class="legal">
       <p><b>Oscar Muñoz Monedero</b> · NIF 47419438Q · Calle Regas, 24, 1.º 1.ª. Política de privacidad más abajo.</p>
-      <p><span class="ph">[Completar: nº de registro como intermediario de crédito inmobiliario si aplica; seguro de responsabilidad civil.]</span></p>
       <p>La información de esta web es orientativa y no constituye una oferta vinculante. El asesoramiento sobre productos de inversión requiere autorización específica de la CNMV y no se presta salvo que se indique expresamente.</p>
     </div>
   </section>
 
-  <section id="privacidad">
+  <section id="privacidad" class="band">
     <span class="eyebrow">Protección de datos</span>
     <h2>Política de privacidad</h2>
     <p class="intro">Cómo trato los datos personales y económicos que me facilitas para prestarte mis servicios.</p>

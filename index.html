@@ -240,6 +240,11 @@ summary { cursor: pointer; color: var(--accent); }
 .quest .btns { display: flex; flex-direction: column; gap: 10px; }
 .svc .price { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; margin-bottom: 14px; }
 .svc .price b { color: var(--fg); font-size: 17px; font-family: var(--font-display); }
+.aud { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+.aud > * { min-width: 0; }
+.aud div { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; }
+.aud b { display: block; font-family: var(--font-display); font-size: 19px; color: var(--accent); }
+.aud span { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); line-height: 1.45; }
 .pillrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
 .pillrow span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; color: var(--accent); }
 
@@ -379,6 +384,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .hero-logo { order: -1; justify-self: start; width: 96px; }
   .rep-pages { grid-template-columns: repeat(3, 1fr); }
   .quest { grid-template-columns: 1fr; }
+  .aud { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .about { grid-template-columns: 1fr; }
@@ -414,12 +420,12 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 
   <div class="hero">
     <div>
-      <p class="eyebrow">Asesoría financiera privada · Barcelona y online</p>
+      <p class="eyebrow">Particulares · Autónomos · Pequeños negocios</p>
       <h1>Entiende tu patrimonio y <em>gestiónalo con criterio.</em></h1>
-      <p class="l1">Analizo tus ingresos, gastos, ahorros, deudas e inversiones y te entrego un informe financiero personalizado: qué tienes hoy, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
-      <p class="l2">Y si vas a comprar vivienda, busco y negocio tu hipoteca con varios bancos y me encargo de todos los trámites, de la documentación a la firma en notaría.</p>
+      <p class="l1">Tanto si eres particular como si eres autónomo o tienes un pequeño negocio, analizo tus ingresos, gastos, ahorros, deudas e inversiones y te entrego un informe financiero personalizado: qué tienes hoy, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
+      <p class="l2">Y si vas a comprar vivienda o un local para tu actividad, busco y negocio tu hipoteca con varios bancos y me encargo de todos los trámites, de la documentación a la firma en notaría.</p>
       <ul class="hero-points">
-        <li><b>Informe financiero personalizado</b> con tu patrimonio, presupuesto y próximos pasos.</li>
+        <li><b>Informe financiero personalizado</b> para tu hogar o tu negocio: patrimonio, presupuesto y próximos pasos.</li>
         <li><b>Búsqueda y negociación de hipoteca</b> comparando ofertas de varias entidades.</li>
         <li><b>Todos los trámites gestionados</b>: documentación, ofertas vinculantes (FEIN) y firma en notaría.</li>
       </ul>
@@ -469,6 +475,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <span class="eyebrow" style="display:block; margin-bottom:12px">Servicios</span>
       <h2>Qué hago por ti</h2>
       <p class="intro">Me ocupo de todo el trabajo pesado: comparo, negocio, preparo la documentación y te acompaño hasta el final. Tú solo decides.</p>
+      <div class="aud">
+        <div><b>Particulares y familias</b><span>Ordena tu economía, compra tu vivienda y haz crecer tus ahorros.</span></div>
+        <div><b>Autónomos</b><span>Separa las finanzas personales de las de tu actividad y planifica ingresos irregulares.</span></div>
+        <div><b>Pequeños negocios</b><span>Controla la tesorería, revisa la financiación y toma decisiones con números claros.</span></div>
+      </div>
       <div class="svc3">
         <article class="svc">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
@@ -486,14 +497,15 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         </article>
         <article class="svc">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
-          <h3>Finanzas personales</h3>
-          <p class="gain">Sabes dónde estás y qué hacer con tu dinero.</p>
+          <h3>Finanzas y patrimonio</h3>
+          <p class="gain">Sabes dónde estás y qué hacer con tu dinero, en casa o en tu negocio.</p>
           <ul>
             <li>Estudio y dossier con las necesidades de cada cliente.</li>
             <li>Diagnóstico de ingresos, gastos, deudas y patrimonio.</li>
             <li>Presupuesto mensual realista y plan para salir de deudas.</li>
             <li>Fondo de emergencia y objetivos de ahorro por plazos.</li>
             <li>Revisión de préstamos, tarjetas y comisiones bancarias.</li>
+            <li>Para autónomos y pequeños negocios: control de tesorería y separación entre las finanzas personales y las de la actividad.</li>
           </ul>
           <div class="foot"><p class="price"><b>100 €</b> por el estudio y el dossier</p><a class="btn primary small" href="#cita">Pedir cita</a></div>
         </article>
@@ -853,7 +865,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         <div class="pr"><strong>0,5 %</strong><span>del valor de la vivienda, por la gestión completa, una vez firmada la hipoteca. Se restan los 200 € ya abonados.</span></div>
       </div>
       <div class="card">
-        <h3>Finanzas personales</h3>
+        <h3>Finanzas y patrimonio</h3>
         <div class="pr"><strong>100 €</strong><span>por el estudio y el dossier con las necesidades de cada cliente.</span></div>
       </div>
     </div>
@@ -876,7 +888,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         <p class="pick" id="cal-pick"></p>
         <div class="fields">
           <div class="field"><label for="c-nombre">Nombre y apellidos</label><input id="c-nombre" type="text" autocomplete="name" maxlength="80"></div>
-          <div class="field"><label for="c-motivo">Motivo</label><select id="c-motivo"><option>Primera llamada</option><option>Hipoteca</option><option>Inversiones</option><option>Finanzas personales</option></select></div>
+          <div class="field"><label for="c-motivo">Motivo</label><select id="c-motivo"><option>Primera llamada</option><option>Hipoteca</option><option>Inversiones</option><option>Finanzas y patrimonio</option></select></div>
           <div class="field"><label for="c-tel">Teléfono</label><input id="c-tel" type="tel" autocomplete="tel" maxlength="30"></div>
           <div class="field"><label for="c-mail">Correo</label><input id="c-mail" type="email" autocomplete="email" maxlength="80"></div>
         </div>

@@ -67,7 +67,7 @@ button { font-family: inherit; }
 .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
 .mk { width: 30px; height: 30px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--accent); letter-spacing: 0; }
-nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+nav { display: flex; gap: 6px 14px; flex-wrap: wrap; font-size: 13.5px; }
 nav a { color: var(--fg); text-decoration: none; }
 nav a:hover { color: var(--accent2); }
 nav a.cta-nav { color: var(--accent); font-weight: 700; }
@@ -215,6 +215,19 @@ summary { cursor: pointer; color: var(--accent); }
 .svc ul { margin: 16px 0 0; padding-left: 18px; display: grid; gap: 8px; color: var(--muted); font-size: 15px; }
 .svc li::marker { color: var(--accent); }
 .svc .foot { margin-top: auto; padding-top: 22px; }
+/* informe de ejemplo y cuestionario */
+.rep-pages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 28px; }
+.rep-pages > * { min-width: 0; }
+.rep-pages a { display: block; text-decoration: none; color: var(--muted); font-size: 13px; text-align: center; }
+.rep-pages img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(16, 37, 60, 0.10); transition: transform .2s; }
+.rep-pages a:hover img { transform: translateY(-4px); }
+.rep-pages span { display: block; margin-top: 8px; }
+.quest { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 32px; scroll-margin-top: 16px; }
+.quest > * { min-width: 0; }
+.quest h3 { font-size: 24px; }
+.quest ol { margin: 12px 0 0; padding-left: 20px; display: grid; gap: 6px; color: var(--muted); font-size: 15px; }
+.quest li::marker { color: var(--accent); font-weight: 700; }
+.quest .btns { display: flex; flex-direction: column; gap: 10px; }
 .svc .price { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; margin-bottom: 14px; }
 .svc .price b { color: var(--fg); font-size: 17px; font-family: var(--font-display); }
 .pillrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
@@ -354,6 +367,8 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .cal-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
   .hero-svc { padding: 32px 22px; }
   .hero-logo { order: -1; justify-self: start; width: 96px; }
+  .rep-pages { grid-template-columns: repeat(3, 1fr); }
+  .quest { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .about { grid-template-columns: 1fr; }
@@ -377,6 +392,8 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Proceso</a>
+      <a href="#informe">Informe Cliente</a>
+      <a href="#plantilla">Plantilla Cliente</a>
       <a href="#hipotecas">Hipotecas</a>
       <a href="#inversiones">Inversiones</a>
       <a href="#actualidad">Actualidad</a>
@@ -516,6 +533,36 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 </svg>
     </div>
     <div class="callout"><p>Tú decides en cada paso. Yo me ocupo de comparar, negociar y gestionar el papeleo.</p></div>
+  </section>
+
+  <section id="informe">
+    <span class="eyebrow">Tu informe</span>
+    <h2>Esto es lo que vas a recibir</h2>
+    <p class="intro">Al terminar el estudio te entrego un informe claro y visual, con tus cifras, la comparativa de ofertas, las conclusiones y los próximos pasos. Aquí tienes un ejemplo con datos ficticios.</p>
+    <div class="rep-pages">
+      <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-1.png" width="1000" height="1414" loading="lazy" alt="Portada del informe financiero personalizado"><span>Portada</span></a>
+      <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-2.png" width="1000" height="1414" loading="lazy" alt="Comparativa de ofertas hipotecarias"><span>Comparativa de hipotecas</span></a>
+      <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-3.png" width="1000" height="1414" loading="lazy" alt="Encaje en el presupuesto y conclusiones de la hipoteca"><span>Presupuesto y conclusiones</span></a>
+      <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-4.png" width="1000" height="1414" loading="lazy" alt="Patrimonio y presupuesto mensual"><span>Patrimonio</span></a>
+      <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-5.png" width="1000" height="1414" loading="lazy" alt="Reparto del ahorro y proyección a 15 años"><span>Ahorro e inversión</span></a>
+    </div>
+    <div class="cta"><a class="btn ghost" href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener">Ver el informe de ejemplo (PDF)</a></div>
+
+    <div class="card quest" id="plantilla">
+      <div>
+        <span class="tag">Para empezar</span>
+        <h3>Descarga el cuestionario y prepara tu estudio</h3>
+        <ol>
+          <li>Descarga el cuestionario en Excel y rellena las casillas amarillas (unos 15 minutos).</li>
+          <li>Envíamelo por correo junto con las ofertas o FEIN que tengas de los bancos.</li>
+          <li>Con tus datos elaboro tu informe personalizado y lo revisamos juntos.</li>
+        </ol>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="informe/Cuestionario_Cliente.xlsx" download>Descargar cuestionario (Excel)</a>
+        <a class="btn ghost" href="#cita">Prefiero hablarlo antes</a>
+      </div>
+    </div>
   </section>
 
   <section id="hipotecas">

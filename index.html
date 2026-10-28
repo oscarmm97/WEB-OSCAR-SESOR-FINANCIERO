@@ -73,8 +73,10 @@ nav a:hover { color: var(--accent2); }
 nav a.cta-nav { color: var(--accent); font-weight: 700; }
 
 /* portada */
-.hero { display: grid; grid-template-columns: minmax(0, 760px); gap: 0; padding-block: 36px 72px; align-items: center; }
+.hero { display: grid; grid-template-columns: minmax(0, 760px) 1fr; gap: 40px; padding-block: 36px 72px; align-items: center; }
 .hero > * { min-width: 0; }
+.hero-logo { justify-self: center; width: min(100%, 300px); color: var(--accent); }
+.hero-logo svg { display: block; width: 100%; height: auto; }
 .hero h1 { font-size: clamp(36px, 5.4vw, 60px); margin-top: 16px; }
 .hero h1 em { font-style: normal; color: var(--accent2); }
 .hero .l1 { font-size: 19px; margin-top: 24px; max-width: 46ch; }
@@ -351,6 +353,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 .fields.f4 { grid-template-columns: 1fr 1fr; }
   .cal-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
   .hero-svc { padding: 32px 22px; }
+  .hero-logo { order: -1; justify-self: start; width: 96px; }
 }
 @media (max-width: 560px) {
   .about { grid-template-columns: 1fr; }
@@ -392,6 +395,15 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         <a class="btn primary" href="#cita">Reserva una cita</a>
         <a class="btn ghost" href="#hipotecas">Simula tu hipoteca</a>
       </div>
+    </div>
+    <div class="hero-logo">
+      <svg viewBox="0 0 1024 1024" role="img" aria-label="Logo de Oscar Muñoz Monedero" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="68" y="68" width="888" height="888" rx="190" stroke-width="26"/>
+        <polyline points="222,494 512,240 802,494" stroke-width="34"/>
+        <line x1="384" y1="646" x2="384" y2="784" stroke-width="42"/>
+        <line x1="512" y1="562" x2="512" y2="784" stroke-width="42"/>
+        <line x1="640" y1="476" x2="640" y2="784" stroke-width="42"/>
+      </svg>
     </div>
   </div>
 

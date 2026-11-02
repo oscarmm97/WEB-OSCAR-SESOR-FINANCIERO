@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Lato:wght@400;700&display=swap">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; secciones separadas para servicios, hipotecas, inversiones y cita; tarjetas blancas sobre azul muy claro, serif en titulares. */
+/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; pestañas para inicio, sobre mí, servicios, hipotecas, informe y noticias; la cita y el contacto al pie de todas; tarjetas blancas sobre azul muy claro, serif en titulares. */
 :root {
   --bg: #f4f7fa;
   --surface: #ffffff;
@@ -73,9 +73,11 @@ nav { display: flex; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; }
 nav a { color: var(--fg); text-decoration: none; }
 nav a:hover { color: var(--accent2); }
 nav a.cta-nav { color: var(--accent); font-weight: 700; }
+nav a.on { color: var(--accent); font-weight: 700; box-shadow: 0 2px 0 var(--accent2); }
+[data-tab][hidden] { display: none !important; }
 
 /* portada */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px 56px; padding-block: 36px 72px; align-items: center; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 28px 56px; padding-block: 36px 72px; align-items: center; }
 .hero > * { min-width: 0; }
 .hero-photo { margin: 0; justify-self: end; width: 100%; }
 .hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 40px rgba(16, 37, 60, 0.16); }
@@ -84,13 +86,8 @@ nav a.cta-nav { color: var(--accent); font-weight: 700; }
 .hero-head { grid-column: 1 / -1; }
 .hero h1 { font-size: clamp(34px, 3.3vw, 46px); margin-top: 16px; white-space: nowrap; }
 .hero h1 em { font-style: normal; color: var(--accent2); }
-.hero .l1 { font-size: 19px; margin-top: 0; max-width: 46ch; }
-.hero .l2 { color: var(--muted); margin-top: 12px; max-width: 50ch; font-size: 17px; }
-.hero-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; max-width: 56ch; }
-.hero-points li { position: relative; padding-left: 30px; font-size: 16px; color: var(--muted); }
-.hero-points li::before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); }
-.hero-points li::after { content: ""; position: absolute; left: 6px; top: 6px; width: 4px; height: 8px; border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg); }
-.hero-points b { color: var(--fg); }
+.hero .l1 { font-size: 20px; margin-top: 0; }
+.hero .l2 { color: var(--muted); margin-top: 14px; font-size: 17px; }
 .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .btn { display: inline-block; font: 700 15px var(--font-body); padding: 12px 22px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
 .btn.primary { background: var(--accent); color: var(--bg); }
@@ -218,7 +215,7 @@ summary { cursor: pointer; color: var(--accent); }
 .hero-svc { background: var(--tint); border-radius: 22px; padding: 48px 36px; margin-top: 0; }
 .hero-svc h2 { font-size: clamp(32px, 4.6vw, 50px); max-width: 20ch; }
 .hero-svc .intro { color: var(--fg); font-size: 19px; max-width: 56ch; }
-.svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; align-items: stretch; }
+.svc3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; align-items: stretch; }
 .svc3 > * { min-width: 0; }
 .svc { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
 .ico { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: grid; place-items: center; }
@@ -375,34 +372,26 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#"><svg class="mk" viewBox="0 0 1024 1024" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="68" y="68" width="888" height="888" rx="190" stroke-width="56"/><polyline points="222,494 512,240 802,494" stroke-width="64"/><line x1="384" y1="646" x2="384" y2="784" stroke-width="72"/><line x1="512" y1="562" x2="512" y2="784" stroke-width="72"/><line x1="640" y1="476" x2="640" y2="784" stroke-width="72"/></svg>Oscar Muñoz Monedero</a>
+    <a class="brand" href="#inicio"><svg class="mk" viewBox="0 0 1024 1024" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="68" y="68" width="888" height="888" rx="190" stroke-width="56"/><polyline points="222,494 512,240 802,494" stroke-width="64"/><line x1="384" y1="646" x2="384" y2="784" stroke-width="72"/><line x1="512" y1="562" x2="512" y2="784" stroke-width="72"/><line x1="640" y1="476" x2="640" y2="784" stroke-width="72"/></svg>Oscar Muñoz Monedero</a>
     <nav aria-label="Secciones">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#proceso">Proceso</a>
-      <a href="#informe">Informe Cliente</a>
-      <a href="#plantilla">Plantilla Cliente</a>
-      <a href="#hipotecas">Hipotecas</a>
-      <a href="#inversiones">Inversiones</a>
-      <a href="#actualidad">Actualidad</a>
-      <a href="#honorarios">Honorarios</a>
+      <a href="#inicio" data-nav="inicio">Inicio</a>
+      <a href="#sobre-mi" data-nav="sobre-mi">Sobre mí</a>
+      <a href="#servicios" data-nav="servicios">Servicios</a>
+      <a href="#hipotecas" data-nav="hipotecas">Hipotecas</a>
+      <a href="#informe" data-nav="informe">Informe financiero</a>
+      <a href="#noticias" data-nav="noticias">Noticias</a>
       <a class="cta-nav" href="#cita">Pedir cita</a>
     </nav>
   </header>
 
-  <div class="hero">
+  <div class="hero" id="inicio" data-tab="inicio">
     <div class="hero-head">
       <p class="eyebrow">Particulares · Autónomos · Pequeños negocios</p>
       <h1>Entiende tu patrimonio y <em>gestiónalo con criterio.</em></h1>
     </div>
     <div>
-      <p class="l1">Analizo tu situación financiera y te entrego un informe claro: qué tienes, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
-      <p class="l2">Si vas a comprar vivienda o local, busco la mejor hipoteca y me ocupo de todos los trámites hasta la notaría.</p>
-      <ul class="hero-points">
-        <li><b>Informe financiero personalizado</b></li>
-        <li><b>Búsqueda y negociación de hipoteca</b></li>
-        <li><b>Todos los trámites, hasta la firma</b></li>
-      </ul>
+      <p class="l1">Analizo tu situación financiera y te entrego un informe claro y personalizado: qué tienes, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
+      <p class="l2">Si vas a comprar vivienda o local, busco y negocio la mejor hipoteca con varios bancos y me ocupo de todos los trámites, de la documentación a la firma en notaría. Trabajo con particulares, autónomos y pequeños negocios.</p>
       <div class="cta">
         <a class="btn primary" href="#cita">Reserva una cita</a>
         <a class="btn ghost" href="#informe">Ver un informe de ejemplo</a>
@@ -414,7 +403,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </figure>
   </div>
 
-  <section id="sobre-mi" class="band">
+  <section id="sobre-mi" data-tab="sobre-mi">
     <span class="eyebrow">Sobre mí</span>
     <h2>Experiencia y formación</h2>
     <div class="about">
@@ -438,7 +427,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="servicios">
+  <section id="servicios" data-tab="servicios">
     <div class="hero-svc">
       <span class="eyebrow" style="display:block; margin-bottom:12px">Servicios</span>
       <h2>Qué hago por ti</h2>
@@ -477,25 +466,12 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
           </ul>
           <div class="foot"><p class="price"><b>100 €</b> por el estudio y el dossier</p><a class="btn primary small" href="#cita">Pedir cita</a></div>
         </article>
-        <article class="svc">
-          <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
-          <h3>Orientación para invertir</h3>
-          <p class="gain">Entiendes tus opciones antes de decidir.</p>
-          <ul>
-            <li>Te explico fondos, ETFs, renta fija, acciones, planes de pensiones y criptomonedas.</li>
-            <li>Definimos tu objetivo, tu plazo y el riesgo que quieres asumir.</li>
-            <li>Comparo costes, riesgos y fiscalidad de cada opción.</li>
-            <li>Te ayudo a elegir el canal: banco, app o gestora.</li>
-            <li>Ordenamos tu plan de ahorro mensual.</li>
-          </ul>
-          <div class="foot"><p class="price">La contratación la haces tú, en la entidad que elijas.</p><a class="btn primary small" href="#inversiones">Probar el simulador</a></div>
-        </article>
       </div>
       <div class="pillrow"><span>Una sola persona</span><span>Todo gestionado</span><span>Sin tecnicismos</span><span>Condiciones por escrito</span></div>
     </div>
   </section>
 
-  <section id="proceso" class="band">
+  <section id="proceso" class="band" data-tab="servicios">
     <span class="eyebrow">El proceso</span>
     <h2>Cómo trabajamos juntos</h2>
     <p class="intro">Cuatro pasos claros. Tú decides, yo me ocupo del resto.</p>
@@ -530,7 +506,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     <div class="callout"><p>Tú decides en cada paso. Yo me ocupo de comparar, negociar y gestionar el papeleo.</p></div>
   </section>
 
-  <section id="informe">
+  <section id="informe" data-tab="informe">
     <span class="eyebrow">Tu informe</span>
     <h2>Esto es lo que vas a recibir</h2>
     <p class="intro">Un informe claro y visual con tus cifras, conclusiones y próximos pasos. Este es un ejemplo con datos ficticios.</p>
@@ -560,7 +536,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="hipotecas" class="band">
+  <section id="hipotecas" data-tab="hipotecas">
     <div class="sec-head"><div>
     <span class="eyebrow">Hipotecas</span>
     <h2>Prueba tu hipoteca antes de pedirla</h2>
@@ -691,98 +667,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     <div class="callout"><p>Te preparo la comparativa con tus datos reales y las ofertas de varios bancos. <a href="#cita">Reserva una cita</a> y lo vemos juntos.</p></div>
   </section>
 
-  <section id="inversiones">
-    <div class="sec-head"><div>
-    <span class="eyebrow">Inversiones</span>
-    <h2>Tu dinero parado también pierde valor</h2>
-    <p class="intro">La inflación resta valor al ahorro parado. Incluso opciones de bajo riesgo, como un fondo monetario o las Letras del Tesoro, pueden protegerlo.</p>
-    </div><svg class="illu" viewBox="0 0 360 260" role="img" aria-label="Ilustración: monedas y barras que crecen con el tiempo">
-<rect width="360" height="260" rx="20" fill="var(--tint)"/>
-<rect x="30" y="206" width="300" height="8" rx="4" fill="var(--line)"/>
-<g fill="var(--s1)"><rect x="50" y="160" width="36" height="46" rx="4" opacity=".55"/><rect x="100" y="130" width="36" height="76" rx="4" opacity=".7"/><rect x="150" y="98" width="36" height="108" rx="4" opacity=".85"/><rect x="200" y="62" width="36" height="144" rx="4"/></g>
-<path d="M60 150 L118 118 L168 86 L222 50 L280 36" fill="none" stroke="var(--s3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M262 34 L284 34 L284 56" fill="none" stroke="var(--s3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="288" cy="130" r="30" fill="#eda100"/><circle cx="288" cy="130" r="22" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/>
-<text x="288" y="141" text-anchor="middle" font-family="Caladea,Georgia,serif" font-size="30" font-weight="700" fill="#fff">€</text>
-<circle cx="276" cy="186" r="20" fill="#eda100" opacity=".8"/><circle cx="306" cy="196" r="14" fill="#eda100" opacity=".6"/>
-</svg></div>
-
-    <div class="sim-h"><h3>Por qué invertir, aunque sea con poco riesgo</h3><span>Hechos que ya hemos vivido.</span></div>
-    <div class="facts">
-      <div class="card"><div class="big2">10,8 %</div><h3>La inflación de 2022</h3><p>En julio de 2022 la inflación en España llegó al 10,8 % según el INE, el nivel más alto en décadas. Quien tenía el dinero en una cuenta al 0 % vio cómo cada mes compraba menos con los mismos euros.</p></div>
-      <div class="card"><div class="big2">Del 0 % al 3 %</div><h3>Los tipos subieron y el ahorro pudo cobrar</h3><p>Desde 2022 el BCE subió los tipos y las Letras del Tesoro y los fondos monetarios volvieron a ofrecer rentabilidades que durante años no existían. Quien se movió, ganó; quien no, siguió cobrando casi nada.</p></div>
-      <div class="card"><div class="big2">100.000 €</div><h3>Seguridad: cuenta y depósitos</h3><p>Los depósitos están garantizados hasta 100.000 € por titular y entidad. Las Letras y Bonos del Estado y los fondos monetarios son opciones de bajo riesgo para ahorro a corto plazo. Ninguna opción garantiza rentabilidad.</p></div>
-    </div>
-
-    <div class="card rv" style="margin-top:20px">
-      <div class="eyebrow">Simulador: ¿cuánto vale tu ahorro dentro de unos años?</div>
-      <div class="fields f4">
-        <div class="field"><label for="r-cap">Ahorro (€)</label><input id="r-cap" type="number" inputmode="numeric" value="10000" min="0" step="500"></div>
-        <div class="field"><label for="r-ani">Años</label><input id="r-ani" type="number" inputmode="numeric" value="10" min="1" max="40"></div>
-        <div class="field"><label for="r-inf">Inflación anual (%)</label><input id="r-inf" type="number" inputmode="decimal" value="2.5" step="0.1" min="0"></div>
-        <div class="field"><label for="r-ren">Rentab. bajo riesgo (%)</label><input id="r-ren" type="number" inputmode="decimal" value="2.5" step="0.1" min="0"></div>
-      </div>
-      <div class="result" aria-live="polite">
-        <div class="hrow" style="margin-top:0"><div class="lab"><span>En una cuenta al 0 %: poder de compra real</span><b id="r-cuenta">—</b></div><div class="hbar"><i id="r-b1" style="background:var(--s2)"></i></div></div>
-        <div class="hrow"><div class="lab"><span>En bajo riesgo (letras, bonos, monetario): poder de compra real</span><b id="r-bajo">—</b></div><div class="hbar"><i id="r-b2" style="background:var(--s3)"></i></div></div>
-        <p class="verdict" id="r-ver"></p>
-      </div>
-      <p class="note">Poder de compra real = lo que podrías comprar hoy con ese dinero, descontada la inflación. Inflación y rentabilidad son supuestos que puedes cambiar; no son previsiones ni garantías.</p>
-    </div>
-
-    <div class="sim-h"><h3>Mira cómo puede crecer tu ahorro</h3><span>Elige cuánto ahorras, durante cuántos años y con qué perfil.</span></div>
-
-    <div class="sim-grid" style="margin-top:16px">
-      <div class="card">
-        <div class="fields" style="grid-template-columns:1fr; margin-top:0">
-          <div class="field"><label for="i-aho">Ahorro al mes <output id="i-aho-v"></output></label><input id="i-aho" type="range" min="50" max="3000" step="25" value="300"></div>
-          <div class="field"><label for="i-ani">Años <output id="i-ani-v"></output></label><input id="i-ani" type="range" min="1" max="40" step="1" value="20"></div>
-        </div>
-        <div class="eyebrow" style="margin-top:18px">Perfil</div>
-        <div class="seg" role="radiogroup" aria-label="Perfil de inversión">
-          <label><input type="radio" name="perfil" value="prudente"><span>Prudente</span><small>Riesgo bajo</small></label>
-          <label><input type="radio" name="perfil" value="equilibrado" checked><span>Equilibrado</span><small>Riesgo medio</small></label>
-          <label><input type="radio" name="perfil" value="dinamico"><span>Dinámico</span><small>Riesgo alto</small></label>
-        </div>
-        <div class="donut-wrap">
-          <svg viewBox="0 0 120 120" role="img" aria-label="Reparto del ahorro por tipo de inversión" id="donut"></svg>
-          <ul class="dl" id="dleg"></ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="legend"><span><i style="background:var(--accent)"></i>Valor estimado</span><span><i style="background:var(--muted)"></i>Lo que aportas</span></div>
-        <div class="chart" id="save-chart"></div>
-        <div class="stats">
-          <div class="stat"><strong id="s-ap">—</strong><span>aportas en total</span></div>
-          <div class="stat"><strong id="s-val">—</strong><span>valor estimado al final</span></div>
-          <div class="stat"><strong id="s-gan">—</strong><span>ganancia estimada</span></div>
-        </div>
-        <p class="chart-note" id="save-note"></p>
-      </div>
-    </div>
-    <p class="note">Rentabilidades anuales supuestas: prudente 2 %, equilibrado 4 %, dinámico 6 %. Son ejemplos ilustrativos, no promesas de rentabilidad ni una recomendación de inversión. El valor real puede ser menor, incluso con pérdidas.</p>
-
-    <div class="sim-h"><h3>Las vías para invertir</h3><span>Cada una tiene su riesgo, sus costes y su plazo.</span></div>
-    <div class="vias">
-      <div class="card"><div class="row"><h3>Fondos de inversión</h3><span class="pill medio">Riesgo según el fondo</span></div><p>Reúnen el dinero de muchos ahorradores, gestionado por una gestora. Pueden ser indexados (siguen un índice, con costes bajos) o de gestión activa.</p></div>
-      <div class="card"><div class="row"><h3>ETFs</h3><span class="pill medio">Riesgo medio-alto</span></div><p>Fondos que cotizan en bolsa como una acción. Suelen seguir un índice y tener costes bajos. Se compran y se venden durante la sesión.</p></div>
-      <div class="card"><div class="row"><h3>Renta fija: depósitos, letras y bonos</h3><span class="pill bajo">Riesgo bajo</span></div><p>Prestas dinero a un banco o a un Estado a cambio de un interés. Los depósitos están garantizados hasta 100.000 € por titular y entidad.</p></div>
-      <div class="card"><div class="row"><h3>Acciones</h3><span class="pill alto">Riesgo alto</span></div><p>Compras una parte de una empresa. Puede revalorizarse y pagar dividendos, pero su precio sube y baja, a veces con fuerza.</p></div>
-      <div class="card"><div class="row"><h3>Planes de pensiones</h3><span class="pill medio">Riesgo medio</span></div><p>Ahorro pensado para la jubilación, con ventajas fiscales al aportar. El dinero queda poco disponible hasta el rescate.</p></div>
-      <div class="card"><div class="row"><h3>Criptomonedas</h3><span class="pill alto">Riesgo muy alto</span></div><p>Activos digitales con una volatilidad muy alta. Solo para una parte pequeña del patrimonio y si entiendes bien el riesgo.</p></div>
-    </div>
-    <div class="sim-h"><h3>Dónde se contratan</h3></div>
-    <div class="canales">
-      <div class="card"><h3>Bancos tradicionales</h3><p>Con oficina y atención personal. Suelen cobrar más comisiones.</p></div>
-      <div class="card"><h3>Bancos y brókers online</h3><p>Apps con costes bajos, para operar tú mismo desde el móvil.</p></div>
-      <div class="card"><h3>Gestoras y robo-advisors</h3><p>Carteras de fondos creadas y mantenidas por la plataforma.</p></div>
-      <div class="card"><h3>Plataformas de criptoactivos</h3><p>Mercados para comprar cripto. Conviene elegir las reguladas.</p></div>
-    </div>
-    <div class="callout"><span class="eyebrow">Cómo puedo ayudarte</span><p>Te ayudo a ver qué opción encaja con tu objetivo y tu plazo, a comparar costes, riesgos y fiscalidad, a elegir el canal que mejor te va y a ordenar tu plan de ahorro. La contratación la haces tú, en la entidad que elijas.</p></div>
-    <p class="legal-note">Información educativa. No constituye una recomendación personalizada de inversión ni asesoramiento regulado. Invertir conlleva riesgo, incluida la pérdida del capital.</p>
-  </section>
-
-  <section id="actualidad" class="band">
+  <section id="noticias" data-tab="noticias">
     <div class="sec-head"><div>
     <span class="eyebrow">Actualidad</span>
     <h2>Noticias y datos para estar al día</h2>
@@ -822,7 +707,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="honorarios">
+  <section id="honorarios" data-tab="servicios">
     <span class="eyebrow">Honorarios</span>
     <h2>Sin sorpresas</h2>
     <p class="intro">Antes de empezar recibes por escrito qué cobro, cuándo y en qué casos.</p>
@@ -861,12 +746,12 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <div><b>Zona de trabajo:</b> Barcelona y online</div>
     </div>
     <div class="legal">
-      <p><b>Oscar Muñoz Monedero</b> · NIF 47419438Q · Calle Regas, 24, 1.º 1.ª. Política de privacidad más abajo.</p>
+      <p><b>Oscar Muñoz Monedero</b> · NIF 47419438Q · Calle Regas, 24, 1.º 1.ª. <a href="#privacidad">Política de privacidad</a>.</p>
       <p>La información de esta web es orientativa y no constituye una oferta vinculante. El asesoramiento sobre productos de inversión requiere autorización específica de la CNMV y no se presta salvo que se indique expresamente.</p>
     </div>
   </section>
 
-  <section id="privacidad" class="band">
+  <section id="privacidad" class="band" data-tab="privacidad">
     <span class="eyebrow">Protección de datos</span>
     <h2>Política de privacidad</h2>
     <p class="intro">Cómo trato los datos personales y económicos que me facilitas para prestarte mis servicios.</p>
@@ -884,7 +769,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 
   <footer>
     <span>© <span id="year">2026</span> Oscar Muñoz Monedero · Asesor financiero privado</span>
-    <span>NIF 47419438Q</span>
+    <span>NIF 47419438Q · <a href="#privacidad">Política de privacidad</a></span>
   </footer>
 </div>
 
@@ -1017,82 +902,13 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     $("o-veredicto").textContent = diff > 1 ? "La oferta " + best.toUpperCase() + " cuesta " + eur0.format(diff) + " menos en total durante todo el plazo." : "Las dos ofertas cuestan lo mismo en total.";
   }
 
-  /* ---------- inversión: reparto y proyección por perfil ---------- */
-  var PERFILES = {
-    prudente: { rent: 0.02, nombre: "prudente", mix: [20, 60, 15, 5] },
-    equilibrado: { rent: 0.04, nombre: "equilibrado", mix: [10, 35, 50, 5] },
-    dinamico: { rent: 0.06, nombre: "dinámico", mix: [5, 15, 75, 5] }
-  };
-  var CATS = ["Liquidez", "Renta fija", "Renta variable", "Otros"];
-  function perfil() { var r = document.querySelector('input[name="perfil"]:checked'); return PERFILES[r ? r.value : "equilibrado"]; }
-  function donut(mix) {
-    var R = 42, C = 2 * Math.PI * R, off = 0, s = "", leg = "";
-    mix.forEach(function (v, i) {
-      var len = C * v / 100;
-      s += '<circle cx="60" cy="60" r="' + R + '" fill="none" stroke="var(--d' + (i + 1) + ')" stroke-width="18" stroke-dasharray="' + len + " " + (C - len) + '" stroke-dashoffset="' + (-off) + '" transform="rotate(-90 60 60)"/>';
-      off += len;
-      leg += '<li><i style="background:var(--d' + (i + 1) + ')"></i>' + CATS[i] + "<b>" + v + " %</b></li>";
-    });
-    $("donut").innerHTML = s;
-    $("dleg").innerHTML = leg;
-  }
-  function renderSave() {
-    var host = $("save-chart"), p = perfil();
-    var a = num("i-aho"), n = Math.round(num("i-ani")), r = p.rent;
-    $("i-aho-v").textContent = eur0.format(a) + "/mes";
-    $("i-ani-v").textContent = n + (n === 1 ? " año" : " años");
-    donut(p.mix);
-    var rm = Math.pow(1 + r, 1 / 12) - 1, v = 0, vals = [0], ap = [0], m;
-    for (m = 1; m <= n * 12; m++) { v = v * (1 + rm) + a; if (m % 12 === 0) { vals.push(v); ap.push(a * m); } }
-    $("s-ap").textContent = eur0.format(ap[n]);
-    $("s-val").textContent = eur0.format(vals[n]);
-    $("s-gan").textContent = eur0.format(vals[n] - ap[n]);
-    var W = Math.max(host.clientWidth, 300), H = 260, pl = 58, pr = 104, pt = 14, pb = 30;
-    var iw = W - pl - pr, ih = H - pt - pb;
-    var max = Math.max(vals[n], 1), step = niceStep(max), top = Math.ceil(max / step) * step;
-    function X(i) { return pl + iw * i / n; }
-    function Y(val) { return pt + ih - val / top * ih; }
-    var g = gridLines(W, pl, pr, pt, ih, top, step), i;
-    var tick = n <= 10 ? 1 : n <= 20 ? 5 : 10, xl = "";
-    for (i = 0; i <= n; i += tick) xl += '<text x="' + X(i) + '" y="' + (H - 10) + '" text-anchor="middle">' + (i === 0 ? "Hoy" : i) + "</text>";
-    xl += '<text x="' + (W - pr + 12) + '" y="' + (H - 10) + '">años</text>';
-    var area = "M" + X(0) + "," + Y(0);
-    for (i = 0; i <= n; i++) area += " L" + X(i) + "," + Y(vals[i]);
-    for (i = n; i >= 0; i--) area += " L" + X(i) + "," + Y(ap[i]);
-    var lv = "M" + X(0) + "," + Y(vals[0]), la = "M" + X(0) + "," + Y(ap[0]);
-    for (i = 1; i <= n; i++) { lv += " L" + X(i) + "," + Y(vals[i]); la += " L" + X(i) + "," + Y(ap[i]); }
-    var ex = X(n), close = Math.abs(Y(vals[n]) - Y(ap[n])) < 34;
-    host.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Línea de lo que aportas y del valor estimado durante ' + n + ' años">' + g + xl +
-      '<path d="' + area + '" fill="var(--accent)" fill-opacity="0.14"/>' +
-      '<path d="' + la + '" fill="none" stroke="var(--muted)" stroke-width="1.6"/>' +
-      '<path d="' + lv + '" fill="none" stroke="var(--accent)" stroke-width="2.6"/>' +
-      '<circle cx="' + ex + '" cy="' + Y(vals[n]) + '" r="4" fill="var(--accent)"/><circle cx="' + ex + '" cy="' + Y(ap[n]) + '" r="4" fill="var(--muted)"/>' +
-      '<text class="endv" x="' + (ex + 10) + '" y="' + (Y(vals[n]) + 1) + '">' + eur0.format(vals[n]) + '</text><text x="' + (ex + 10) + '" y="' + (Y(vals[n]) + 14) + '">Valor estimado</text>' +
-      '<text class="endv" x="' + (ex + 10) + '" y="' + (Y(ap[n]) + (close ? 30 : 1)) + '">' + eur0.format(ap[n]) + '</text><text x="' + (ex + 10) + '" y="' + (Y(ap[n]) + (close ? 44 : 14)) + '">Lo que aportas</text></svg>';
-    $("save-note").textContent = "Con el perfil " + p.nombre + " (rentabilidad supuesta del " + (r * 100).toFixed(0) + " % anual), en " + n + " años aportarías " + eur0.format(ap[n]) + " y podrías llegar a " + eur0.format(vals[n]) + ".";
-  }
 
   ["precio", "entrada", "plazo", "tin", "ingresos"].forEach(function (id) { $(id).addEventListener("input", calc); });
   ["c-ing", "c-deu", "c-aho", "c-pla", "c-tin"].forEach(function (id) { $(id).addEventListener("input", capacity); });
   ["o-imp", "a-tin", "a-pla", "a-com", "a-vin", "b-tin", "b-pla", "b-com", "b-vin"].forEach(function (id) { $(id).addEventListener("input", compare); });
-  ["i-aho", "i-ani"].forEach(function (id) { $(id).addEventListener("input", renderSave); });
-  Array.prototype.forEach.call(document.querySelectorAll('input[name="perfil"]'), function (el) { el.addEventListener("change", renderSave); });
-
-  function renderReal() {
-    var c = num("r-cap"), n = Math.max(1, num("r-ani")), inf = num("r-inf") / 100, ren = num("r-ren") / 100;
-    var a = c / Math.pow(1 + inf, n), b = c * Math.pow((1 + ren) / (1 + inf), n);
-    var mx = Math.max(c, a, b, 1);
-    $("r-cuenta").textContent = eur0.format(a);
-    $("r-bajo").textContent = eur0.format(b);
-    $("r-b1").style.width = Math.max(2, a / mx * 100) + "%";
-    $("r-b2").style.width = Math.max(2, b / mx * 100) + "%";
-    var perdido = c - a;
-    $("r-ver").textContent = "Con " + String(Math.round(inf * 1000) / 10).replace(".", ",") + " % de inflación, " + eur0.format(c) + " en una cuenta al 0 % equivaldrían a " + eur0.format(a) + " dentro de " + n + (n === 1 ? " año" : " años") + ": pierdes " + eur0.format(perdido) + " de poder de compra" + (ren > inf ? ", mientras que con una opción de bajo riesgo que rinda más que la inflación lo mantendrías o lo harías crecer." : ".");
-  }
-  ["r-cap", "r-ani", "r-inf", "r-ren"].forEach(function (id) { $(id).addEventListener("input", renderReal); });
-  function all() { calc(); capacity(); compare(); renderSave(); renderReal(); }
+  function all() { calc(); capacity(); compare(); }
   all();
-  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { calc(); renderSave(); }, 150); });
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(calc, 150); });
 
   $("copy-mail").addEventListener("click", function () {
     var b = this, t = $("mail").textContent;
@@ -1101,5 +917,52 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     try { navigator.clipboard.writeText(t).then(done, sel2); } catch (e) { sel2(); }
   });
   $("year").textContent = new Date().getFullYear();
+})();
+</script>
+<script>
+/* pestañas: cada enlace del menú muestra solo su parte de la web; la cita y el contacto se ven siempre */
+(function () {
+  var MAP = { "": "inicio", inicio: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
+  var panels = document.querySelectorAll("[data-tab]"), links = document.querySelectorAll("[data-nav]"), cur = null;
+  function show(tab) {
+    if (tab === cur) return;
+    cur = tab;
+    Array.prototype.forEach.call(panels, function (p) { p.hidden = p.getAttribute("data-tab") !== tab; });
+    Array.prototype.forEach.call(links, function (a) {
+      var on = a.getAttribute("data-nav") === tab;
+      a.classList.toggle("on", on);
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    // los gráficos de los simuladores se recalculan al hacerse visibles
+    window.dispatchEvent(new Event("resize"));
+  }
+  function route() {
+    var h = decodeURIComponent(location.hash.slice(1)), tab = MAP[h], el = h ? document.getElementById(h) : null;
+    if (!tab) {
+      // #cita y #contacto: se quedan en la pestaña actual y bajan hasta ese apartado
+      if (!cur) show("inicio");
+      if (el) el.scrollIntoView();
+      return;
+    }
+    show(tab);
+    // se espera a que el navegador termine su propio salto al ancla y después se coloca la página
+    setTimeout(function () {
+      if (el && h !== tab && h !== "inicio") el.scrollIntoView({ behavior: "instant" });
+      else window.scrollTo({ top: 0, behavior: "instant" });
+    }, 0);
+  }
+  // los enlaces a pestañas cambian de pestaña sin que el navegador salte al ancla
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var h = a.getAttribute("href").slice(1);
+    if (!(h in MAP) && h !== "") return;
+    e.preventDefault();
+    if (location.hash.slice(1) !== h) history.pushState(null, "", "#" + h);
+    route();
+  });
+  window.addEventListener("popstate", route);
+  window.addEventListener("hashchange", route);
+  route();
 })();
 </script>

@@ -88,6 +88,13 @@ nav a.on { color: var(--accent); font-weight: 700; box-shadow: 0 2px 0 var(--acc
 .hero h1 em { font-style: normal; color: var(--accent2); }
 .hero .l1 { font-size: 20px; margin-top: 0; }
 .hero .l2 { color: var(--muted); margin-top: 14px; font-size: 17px; }
+.hero-svcs { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+.hero-svcs > * { min-width: 0; }
+.hero-svcs a { display: block; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--muted); transition: border-color .2s, transform .2s; }
+.hero-svcs a:hover { border-color: var(--accent2); transform: translateY(-2px); }
+.hero-svcs b { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 21px; color: var(--fg); }
+.hero-svcs span:not(.tag) { display: block; margin-top: 6px; font-size: 15px; line-height: 1.5; }
+.hero-svcs i { display: block; margin-top: 10px; font-style: normal; font-weight: 700; font-size: 14px; color: var(--accent); }
 .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .btn { display: inline-block; font: 700 15px var(--font-body); padding: 12px 22px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
 .btn.primary { background: var(--accent); color: var(--bg); }
@@ -356,6 +363,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .rep-pages { grid-template-columns: repeat(3, 1fr); }
   .quest { grid-template-columns: 1fr; }
   .aud { grid-template-columns: 1fr; }
+  .hero-svcs { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .profile { grid-template-columns: 1fr; }
@@ -378,7 +386,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <a href="#sobre-mi" data-nav="sobre-mi">Sobre mí</a>
       <a href="#servicios" data-nav="servicios">Servicios</a>
       <a href="#hipotecas" data-nav="hipotecas">Hipotecas</a>
-      <a href="#informe" data-nav="informe">Informe financiero</a>
+      <a href="#informe" data-nav="informe">Informe Cliente</a>
       <a href="#noticias" data-nav="noticias">Noticias</a>
       <a class="cta-nav" href="#cita">Pedir cita</a>
     </nav>
@@ -401,6 +409,20 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <img src="foto.jpg" width="480" height="600" alt="Oscar Muñoz Monedero, asesor financiero">
       <figcaption><b>Oscar Muñoz Monedero</b>Asesor financiero · Barcelona y online</figcaption>
     </figure>
+    <div class="hero-svcs">
+      <a href="#hipotecas">
+        <span class="tag">Servicio 1</span>
+        <b>Gestión de hipotecas</b>
+        <span>Busco y negocio la mejor hipoteca con varios bancos y me ocupo de todos los trámites hasta la firma.</span>
+        <i>Ver hipotecas →</i>
+      </a>
+      <a href="#informe">
+        <span class="tag">Servicio 2</span>
+        <b>Informe financiero personalizado</b>
+        <span>Analizo tu situación y te entrego un informe claro con tu patrimonio, tu presupuesto y los próximos pasos.</span>
+        <i>Ver Informe Cliente →</i>
+      </a>
+    </div>
   </div>
 
   <section id="sobre-mi" data-tab="sobre-mi">
@@ -507,9 +529,27 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   </section>
 
   <section id="informe" data-tab="informe">
-    <span class="eyebrow">Tu informe</span>
-    <h2>Esto es lo que vas a recibir</h2>
-    <p class="intro">Un informe claro y visual con tus cifras, conclusiones y próximos pasos. Este es un ejemplo con datos ficticios.</p>
+    <span class="eyebrow">Informe Cliente</span>
+    <h2>Tu informe financiero personalizado</h2>
+    <p class="intro">Descargas la plantilla, la rellenas y me la envías. Con tus datos hago el análisis y te entrego un informe claro con tus cifras, conclusiones y próximos pasos.</p>
+
+    <div class="card quest" id="plantilla">
+      <div>
+        <span class="tag">Plantilla del cliente</span>
+        <h3>Descarga la plantilla y envíamela</h3>
+        <ol>
+          <li>Descarga la plantilla en Excel y rellena las casillas amarillas (unos 15 minutos).</li>
+          <li>Envíamela a <b>oscarmunozmonedero@gmail.com</b>, junto con las ofertas o FEIN que tengas de los bancos.</li>
+          <li>Con tus datos hago el análisis, preparo tu informe y lo revisamos juntos.</li>
+        </ol>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="informe/Cuestionario_Cliente.xlsx" download>Descargar plantilla (Excel)</a>
+        <a class="btn ghost" href="#cita">Prefiero hablarlo antes</a>
+      </div>
+    </div>
+
+    <div class="sim-h"><h3>Ejemplo de informe</h3><span>Así es el informe que recibirás (datos ficticios).</span></div>
     <div class="rep-pages">
       <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-1.png" width="1000" height="1414" loading="lazy" alt="Portada del informe financiero personalizado"><span>Portada</span></a>
       <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-2.png" width="1000" height="1414" loading="lazy" alt="Comparativa de ofertas hipotecarias"><span>Comparativa de hipotecas</span></a>
@@ -518,22 +558,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <a href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener"><img src="informe/pagina-5.png" width="1000" height="1414" loading="lazy" alt="Reparto del ahorro y proyección a 15 años"><span>Ahorro e inversión</span></a>
     </div>
     <div class="cta"><a class="btn ghost" href="informe/Ejemplo_Informe_Cliente.pdf" target="_blank" rel="noopener">Ver el informe de ejemplo (PDF)</a></div>
-
-    <div class="card quest" id="plantilla">
-      <div>
-        <span class="tag">Para empezar</span>
-        <h3>Descarga el cuestionario y prepara tu estudio</h3>
-        <ol>
-          <li>Descarga el cuestionario en Excel y rellena las casillas amarillas (unos 15 minutos).</li>
-          <li>Envíamelo por correo junto con las ofertas o FEIN que tengas de los bancos.</li>
-          <li>Con tus datos elaboro tu informe personalizado y lo revisamos juntos.</li>
-        </ol>
-      </div>
-      <div class="btns">
-        <a class="btn primary" href="informe/Cuestionario_Cliente.xlsx" download>Descargar cuestionario (Excel)</a>
-        <a class="btn ghost" href="#cita">Prefiero hablarlo antes</a>
-      </div>
-    </div>
   </section>
 
   <section id="hipotecas" data-tab="hipotecas">

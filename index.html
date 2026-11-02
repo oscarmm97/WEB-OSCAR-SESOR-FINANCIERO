@@ -75,15 +75,16 @@ nav a:hover { color: var(--accent2); }
 nav a.cta-nav { color: var(--accent); font-weight: 700; }
 
 /* portada */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; padding-block: 36px 72px; align-items: center; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px 56px; padding-block: 36px 72px; align-items: center; }
 .hero > * { min-width: 0; }
 .hero-photo { margin: 0; justify-self: end; width: 100%; }
 .hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 40px rgba(16, 37, 60, 0.16); }
 .hero-photo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
 .hero-photo figcaption b { display: block; color: var(--fg); font-family: var(--font-display); font-size: 18px; }
-.hero h1 { font-size: clamp(36px, 5.4vw, 60px); margin-top: 16px; }
+.hero-head { grid-column: 1 / -1; }
+.hero h1 { font-size: clamp(34px, 3.3vw, 46px); margin-top: 16px; white-space: nowrap; }
 .hero h1 em { font-style: normal; color: var(--accent2); }
-.hero .l1 { font-size: 19px; margin-top: 24px; max-width: 46ch; }
+.hero .l1 { font-size: 19px; margin-top: 0; max-width: 46ch; }
 .hero .l2 { color: var(--muted); margin-top: 12px; max-width: 50ch; font-size: 17px; }
 .hero-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; max-width: 56ch; }
 .hero-points li { position: relative; padding-left: 30px; font-size: 16px; color: var(--muted); }
@@ -351,6 +352,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 .fields.f4 { grid-template-columns: 1fr 1fr; }
   .booking iframe { height: 900px; }
   .hero-svc { padding: 32px 22px; }
+  .hero h1 { white-space: normal; }
   .hero-photo { order: -1; justify-self: start; display: flex; align-items: center; gap: 14px; }
   .hero-photo img { width: 84px; border-radius: 14px; box-shadow: none; }
   .hero-photo figcaption { margin: 0; text-align: left; }
@@ -389,9 +391,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   </header>
 
   <div class="hero">
-    <div>
+    <div class="hero-head">
       <p class="eyebrow">Particulares · Autónomos · Pequeños negocios</p>
       <h1>Entiende tu patrimonio y <em>gestiónalo con criterio.</em></h1>
+    </div>
+    <div>
       <p class="l1">Analizo tu situación financiera y te entrego un informe claro: qué tienes, qué puedes mejorar y cómo hacer crecer tu patrimonio.</p>
       <p class="l2">Si vas a comprar vivienda o local, busco la mejor hipoteca y me ocupo de todos los trámites hasta la notaría.</p>
       <ul class="hero-points">

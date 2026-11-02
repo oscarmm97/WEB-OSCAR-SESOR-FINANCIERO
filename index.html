@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Lato:wght@400;700&display=swap">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; pestañas para inicio, sobre mí, servicios, hipotecas, informe y noticias; la reserva de cita en inicio y el contacto al pie de todas; tarjetas blancas sobre azul muy claro, serif en titulares. */
+/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; pestañas para inicio, sobre mí, servicios, hipotecas, informe y noticias; la reserva de cita y el contacto en inicio; tarjetas blancas sobre azul muy claro, serif en titulares. */
 :root {
   --bg: #f4f7fa;
   --surface: #ffffff;
@@ -760,7 +760,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <span>¿No ves bien el calendario? <a href="https://calendar.app.google/YrnecdspEXGz8XxS6" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a>. Si ninguna hora te encaja, escríbeme a <b>oscarmunozmonedero@gmail.com</b> o llámame al <b>+34 633 166 312</b>.</span>
     </div>
   </section>
-  <section id="contacto" class="band">
+  <section id="contacto" data-tab="inicio">
     <span class="eyebrow">Contacto</span>
     <h2>Hablemos de tu caso</h2>
     <p class="intro">Cuéntame qué necesitas y te respondo en un día laborable. También puedes <a href="#cita">reservar una reunión</a> directamente en mi agenda.</p>
@@ -944,9 +944,9 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 })();
 </script>
 <script>
-/* pestañas: cada enlace del menú muestra solo su parte de la web; la reserva de cita va en Inicio y el contacto se ve siempre */
+/* pestañas: cada enlace del menú muestra solo su parte de la web; la reserva de cita y el contacto van en Inicio */
 (function () {
-  var MAP = { "": "inicio", inicio: "inicio", cita: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
+  var MAP = { "": "inicio", inicio: "inicio", cita: "inicio", contacto: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
   var panels = document.querySelectorAll("[data-tab]"), links = document.querySelectorAll("[data-nav]"), cur = null;
   function show(tab) {
     if (tab === cur) return;
@@ -963,7 +963,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   function route() {
     var h = decodeURIComponent(location.hash.slice(1)), tab = MAP[h], el = h ? document.getElementById(h) : null;
     if (!tab) {
-      // #contacto: se queda en la pestaña actual y baja hasta ese apartado
+      // un ancla sin pestaña propia: se queda en la pestaña actual y baja hasta ella
       if (!cur) show("inicio");
       if (el) el.scrollIntoView();
       return;

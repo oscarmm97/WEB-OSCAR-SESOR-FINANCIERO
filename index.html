@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Lato:wght@400;700&display=swap">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; pestañas para inicio, sobre mí, servicios, hipotecas, informe y noticias; la cita y el contacto al pie de todas; tarjetas blancas sobre azul muy claro, serif en titulares. */
+/* Layout: página larga de una columna; hero con titular y tarjeta de perfil; pestañas para inicio, sobre mí, servicios, hipotecas, informe y noticias; la reserva de cita en inicio y el contacto al pie de todas; tarjetas blancas sobre azul muy claro, serif en titulares. */
 :root {
   --bg: #f4f7fa;
   --surface: #ffffff;
@@ -386,7 +386,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <a href="#sobre-mi" data-nav="sobre-mi">Sobre mí</a>
       <a href="#servicios" data-nav="servicios">Servicios</a>
       <a href="#hipotecas" data-nav="hipotecas">Hipotecas</a>
-      <a href="#informe" data-nav="informe">Informe Cliente</a>
+      <a href="#informe" data-nav="informe">Informe financiero</a>
       <a href="#noticias" data-nav="noticias">Noticias</a>
       <a class="cta-nav" href="#cita">Pedir cita</a>
     </nav>
@@ -418,9 +418,9 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       </a>
       <a href="#informe">
         <span class="tag">Servicio 2</span>
-        <b>Informe financiero personalizado</b>
+        <b>Informe financiero</b>
         <span>Analizo tu situación y te entrego un informe claro con tu patrimonio, tu presupuesto y los próximos pasos.</span>
-        <i>Ver Informe Cliente →</i>
+        <i>Ver informe financiero →</i>
       </a>
     </div>
   </div>
@@ -476,7 +476,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         </article>
         <article class="svc">
           <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
-          <h3>Finanzas y patrimonio</h3>
+          <h3>Informe financiero</h3>
           <p class="gain">Sabes dónde estás y qué hacer con tu dinero, en casa o en tu negocio.</p>
           <ul>
             <li>Estudio y dossier con las necesidades de cada cliente.</li>
@@ -529,7 +529,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   </section>
 
   <section id="informe" data-tab="informe">
-    <span class="eyebrow">Informe Cliente</span>
+    <span class="eyebrow">Informe financiero</span>
     <h2>Tu informe financiero personalizado</h2>
     <p class="intro">Descargas la plantilla, la rellenas y me la envías. Con tus datos hago el análisis y te entrego un informe claro con tus cifras, conclusiones y próximos pasos.</p>
 
@@ -742,14 +742,14 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         <div class="pr"><strong>0,5 %</strong><span>del valor de la vivienda, por la gestión completa, una vez firmada la hipoteca. Se restan los 200 € ya abonados.</span></div>
       </div>
       <div class="card">
-        <h3>Finanzas y patrimonio</h3>
+        <h3>Informe financiero</h3>
         <div class="pr"><strong>100 €</strong><span>por el estudio y el dossier con las necesidades de cada cliente.</span></div>
       </div>
     </div>
     <div class="callout"><span class="eyebrow">Cómo se calcula</span><p>Ejemplo: en una vivienda de 280.000 €, la comisión por la gestión completa es de 1.400 € (el 0,5 %). Como ya has abonado 200 €, al firmar pagas 1.200 € y el total es de 1.400 €. Si no se llega a firmar, solo se cobran los 200 €. El IVA se indica en el acuerdo con cada cliente: según lo acordado, los importes se entienden con IVA o sin él.</p></div>
   </section>
 
-  <section id="cita" class="band">
+  <section id="cita" class="band" data-tab="inicio">
     <span class="eyebrow">Cita</span>
     <h2>Reserva una reunión</h2>
     <p class="intro">Elige un hueco libre de mi agenda. Por videollamada o en Barcelona; recibirás un correo de confirmación.</p>
@@ -760,10 +760,10 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <span>¿No ves bien el calendario? <a href="https://calendar.app.google/YrnecdspEXGz8XxS6" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a>. Si ninguna hora te encaja, escríbeme a <b>oscarmunozmonedero@gmail.com</b> o llámame al <b>+34 633 166 312</b>.</span>
     </div>
   </section>
-  <section id="contacto">
+  <section id="contacto" class="band">
     <span class="eyebrow">Contacto</span>
     <h2>Hablemos de tu caso</h2>
-    <p class="intro">Cuéntame qué necesitas y te respondo en un día laborable.</p>
+    <p class="intro">Cuéntame qué necesitas y te respondo en un día laborable. También puedes <a href="#cita">reservar una reunión</a> directamente en mi agenda.</p>
     <div class="card contact">
       <div><b>Correo:</b> <span id="mail">oscarmunozmonedero@gmail.com</span> <button type="button" class="copy" id="copy-mail">Copiar</button></div>
       <div><b>Teléfono:</b> +34 633 166 312</div>
@@ -775,7 +775,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </div>
   </section>
 
-  <section id="privacidad" class="band" data-tab="privacidad">
+  <section id="privacidad" data-tab="privacidad">
     <span class="eyebrow">Protección de datos</span>
     <h2>Política de privacidad</h2>
     <p class="intro">Cómo trato los datos personales y económicos que me facilitas para prestarte mis servicios.</p>
@@ -944,9 +944,9 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 })();
 </script>
 <script>
-/* pestañas: cada enlace del menú muestra solo su parte de la web; la cita y el contacto se ven siempre */
+/* pestañas: cada enlace del menú muestra solo su parte de la web; la reserva de cita va en Inicio y el contacto se ve siempre */
 (function () {
-  var MAP = { "": "inicio", inicio: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
+  var MAP = { "": "inicio", inicio: "inicio", cita: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
   var panels = document.querySelectorAll("[data-tab]"), links = document.querySelectorAll("[data-nav]"), cur = null;
   function show(tab) {
     if (tab === cur) return;
@@ -963,7 +963,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   function route() {
     var h = decodeURIComponent(location.hash.slice(1)), tab = MAP[h], el = h ? document.getElementById(h) : null;
     if (!tab) {
-      // #cita y #contacto: se quedan en la pestaña actual y bajan hasta ese apartado
+      // #contacto: se queda en la pestaña actual y baja hasta ese apartado
       if (!cur) show("inicio");
       if (el) el.scrollIntoView();
       return;

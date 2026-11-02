@@ -92,8 +92,8 @@ nav a.on { color: var(--accent); font-weight: 700; box-shadow: 0 2px 0 var(--acc
 .hero-svcs > * { min-width: 0; }
 .hero-svcs a { display: block; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--muted); transition: border-color .2s, transform .2s; }
 .hero-svcs a:hover { border-color: var(--accent2); transform: translateY(-2px); }
-.hero-svcs b { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 21px; color: var(--fg); }
-.hero-svcs span:not(.tag) { display: block; margin-top: 6px; font-size: 15px; line-height: 1.5; }
+.hero-svcs b { display: block; margin-top: 0; font-family: var(--font-display); font-size: 21px; color: var(--fg); }
+.hero-svcs span { display: block; margin-top: 6px; font-size: 15px; line-height: 1.5; }
 .hero-svcs i { display: block; margin-top: 10px; font-style: normal; font-weight: 700; font-size: 14px; color: var(--accent); }
 .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .btn { display: inline-block; font: 700 15px var(--font-body); padding: 12px 22px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--accent); cursor: pointer; }
@@ -411,13 +411,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     </figure>
     <div class="hero-svcs">
       <a href="#hipotecas">
-        <span class="tag">Servicio 1</span>
         <b>Gestión de hipotecas</b>
         <span>Busco y negocio la mejor hipoteca con varios bancos y me ocupo de todos los trámites hasta la firma.</span>
         <i>Ver hipotecas →</i>
       </a>
       <a href="#informe">
-        <span class="tag">Servicio 2</span>
         <b>Informe financiero</b>
         <span>Analizo tu situación y te entrego un informe claro con tu patrimonio, tu presupuesto y los próximos pasos.</span>
         <i>Ver informe financiero →</i>

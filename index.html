@@ -345,6 +345,55 @@ summary { cursor: pointer; color: var(--accent); }
 .news a small { display: block; font-size: 12px; color: var(--muted); margin-top: 6px; }
 .news-h { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 28px; }
 .rv { margin-top: 16px; }
+
+/* opiniones de clientes */
+#opiniones [hidden] { display: none !important; }
+.op-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
+.op-head > div { min-width: 0; }
+.op-sum { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; }
+.op-sum strong { font-family: var(--font-display); font-size: 34px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.op-sum span { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.stars { color: var(--d4); letter-spacing: 2px; font-size: 16px; line-height: 1; }
+.stars .off { color: var(--line); }
+.op-sum .stars { display: block; color: var(--d4); font-size: 15px; margin: 0; }
+.op-sum .stars .off { display: inline; color: var(--line); font-size: inherit; margin: 0; }
+.op-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.op-list > * { min-width: 0; }
+.op { display: flex; flex-direction: column; gap: 12px; margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.op blockquote { margin: 0; font-size: 16px; line-height: 1.6; color: var(--fg); overflow-wrap: anywhere; }
+.op blockquote::before { content: "“"; display: block; font-family: var(--font-display); font-size: 44px; line-height: .6; color: var(--accent2); margin-bottom: 6px; }
+.op figcaption { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.op figcaption b { display: block; color: var(--fg); font-family: var(--font-display); font-size: 17px; }
+.op-empty { margin-top: 28px; display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: start; background: var(--tint); border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 14px; padding: 24px; }
+.op-empty > * { min-width: 0; }
+.op-empty h3 { font-size: 22px; }
+.op-empty p { color: var(--muted); margin-top: 6px; max-width: 64ch; }
+.op-empty .btns { margin-top: 14px; }
+.op-form { margin-top: 32px; scroll-margin-top: 16px; }
+.op-form[hidden] { display: none; }
+.op-form .fields { grid-template-columns: 1fr 1fr; }
+.field textarea { font: 400 16px/1.5 var(--font-body); padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); width: 100%; min-width: 0; min-height: 130px; resize: vertical; }
+.field .hint { font-size: 12px; color: var(--muted); }
+.field input:invalid:not(:placeholder-shown), .field textarea:invalid:not(:placeholder-shown) { border-color: var(--hi-fg); }
+.rate { border: 0; padding: 0; margin: 0; min-width: 0; }
+.rate legend { padding: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.rate .row { display: inline-flex; flex-direction: row-reverse; gap: 4px; margin-top: 6px; }
+.rate input { position: absolute; opacity: 0; pointer-events: none; }
+.rate label { font-size: 30px; line-height: 1; color: var(--line); cursor: pointer; padding: 0 2px; transition: color .15s; }
+.rate label:hover, .rate label:hover ~ label, .rate input:checked ~ label { color: var(--d4); }
+.rate input:focus-visible + label { outline: 3px solid var(--accent2); outline-offset: 2px; border-radius: 4px; }
+.checks { display: grid; gap: 12px; margin-top: 20px; }
+.check { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; font-size: 14px; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+.check b { color: var(--fg); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-msg { margin-top: 16px; font-size: 15px; padding: 12px 16px; border-radius: 10px; }
+.form-msg:empty { display: none; }
+.form-msg.ok { background: var(--ok-bg); color: var(--ok-fg); }
+.form-msg.err { background: var(--hi-bg); color: var(--hi-fg); }
+.op-done { text-align: left; }
+.op-done h3 { font-size: 22px; }
+.op-done p { color: var(--muted); margin-top: 8px; max-width: 64ch; }
 .fields.f4 { grid-template-columns: repeat(4, 1fr); }
 footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -365,6 +414,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .quest { grid-template-columns: 1fr; }
   .aud { grid-template-columns: 1fr; }
   .hero-svcs { grid-template-columns: 1fr; }
+  .op-list { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
   .profile { grid-template-columns: 1fr; }
@@ -375,6 +425,8 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   .vias .row { flex-direction: column; gap: 8px; }
   .donut-wrap { grid-template-columns: 1fr; }
   .donut-wrap svg { max-width: 170px; }
+  .op-list, .op-form .fields { grid-template-columns: 1fr; }
+  .op-empty { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
@@ -748,6 +800,64 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
     <div class="callout"><span class="eyebrow">Cómo se calcula</span><p>Ejemplo: en una vivienda de 280.000 €, la comisión por la gestión completa es de 1.400 € (el 0,5 %). Como ya has abonado 200 €, al firmar pagas 1.200 € y el total es de 1.400 €. Si no se llega a firmar, solo se cobran los 200 €. El IVA se indica en el acuerdo con cada cliente: según lo acordado, los importes se entienden con IVA o sin él.</p></div>
   </section>
 
+  <section id="opiniones" data-tab="inicio">
+    <div class="op-head">
+      <div>
+        <span class="eyebrow" style="display:flex; margin-bottom:12px">Opiniones</span>
+        <h2 style="font-size:clamp(28px, 3.8vw, 40px); max-width:24ch">Lo que dicen mis clientes</h2>
+        <p class="intro">Opiniones de clientes reales, publicadas con su autorización y con el nombre o las iniciales que cada uno elige.</p>
+      </div>
+      <div class="op-sum" id="op-sum" hidden></div>
+    </div>
+
+    <div class="op-list" id="op-list" hidden></div>
+
+    <div class="op-empty" id="op-empty">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></div>
+      <div>
+        <h3>Todavía no hay opiniones publicadas</h3>
+        <p>Es una web reciente y prefiero que las primeras opiniones lleguen de clientes reales antes que mostrar ejemplos. Si ya has trabajado conmigo, me ayudará mucho conocer tu experiencia.</p>
+        <div class="btns"><a class="btn primary small" href="#dejar-opinion" id="op-open">Dejar mi opinión</a></div>
+      </div>
+    </div>
+
+    <div class="cta" id="op-cta" hidden><a class="btn ghost" href="#dejar-opinion" id="op-open2">Dejar mi opinión</a></div>
+
+    <form class="card op-form" id="dejar-opinion" action="https://formsubmit.co/oscarmunozmonedero@gmail.com" method="POST" hidden novalidate>
+      <h3 class="ct">Cuéntame tu experiencia</h3>
+      <p class="sub">Tu opinión me llega por correo. La reviso antes de publicarla y no se publica nada sin tu autorización. Tu correo no se publica.</p>
+      <input type="hidden" name="_subject" value="Nueva opinión desde la web">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://oscarmunozasesor.vercel.app/#opiniones">
+      <div class="hp" aria-hidden="true"><label for="op-honey">No rellenar</label><input type="text" id="op-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <div class="fields">
+        <div class="field"><label for="op-nombre">Nombre como quieres que aparezca</label><input id="op-nombre" name="Nombre a publicar" type="text" required maxlength="60" placeholder="Por ejemplo: Laura G. o L. G. M." autocomplete="off"><span class="hint">Puedes usar tu nombre y la inicial del apellido, o solo iniciales.</span></div>
+        <div class="field"><label for="op-email">Correo electrónico (no se publica)</label><input id="op-email" name="email" type="email" required maxlength="120" placeholder="tu@correo.com" autocomplete="email"><span class="hint">Solo para confirmar que eres cliente si hiciera falta.</span></div>
+        <div class="field"><label for="op-servicio">Servicio</label><select id="op-servicio" name="Servicio" required><option value="">Elige una opción</option><option>Gestión de hipoteca</option><option>Informe financiero</option><option>Otro</option></select></div>
+        <div class="field"><label for="op-perfil">Eres</label><select id="op-perfil" name="Perfil"><option value="">Prefiero no indicarlo</option><option>Particular</option><option>Autónomo</option><option>Pequeño negocio</option></select></div>
+        <fieldset class="rate" style="grid-column:1 / -1">
+          <legend>Valoración</legend>
+          <div class="row">
+            <input type="radio" id="op-r5" name="Valoración" value="5" required><label for="op-r5" title="5 de 5">★<span class="hp">5 estrellas</span></label>
+            <input type="radio" id="op-r4" name="Valoración" value="4"><label for="op-r4" title="4 de 5">★<span class="hp">4 estrellas</span></label>
+            <input type="radio" id="op-r3" name="Valoración" value="3"><label for="op-r3" title="3 de 5">★<span class="hp">3 estrellas</span></label>
+            <input type="radio" id="op-r2" name="Valoración" value="2"><label for="op-r2" title="2 de 5">★<span class="hp">2 estrellas</span></label>
+            <input type="radio" id="op-r1" name="Valoración" value="1"><label for="op-r1" title="1 de 5">★<span class="hp">1 estrella</span></label>
+          </div>
+        </fieldset>
+        <div class="field full"><label for="op-texto">Tu opinión <output id="op-count">0/800</output></label><textarea id="op-texto" name="Opinión" required minlength="20" maxlength="800" placeholder="¿Qué te ayudó, cómo fue el trato, qué destacarías?"></textarea><span class="hint">Por favor, no incluyas importes, nombres de bancos ni otros datos personales o económicos.</span></div>
+      </div>
+      <div class="checks">
+        <label class="check"><input type="checkbox" name="Autoriza publicar en la web" value="Sí" required><span><b>Autorizo la publicación de esta opinión en esta web</b> con el nombre o las iniciales que he indicado. Podré pedir que se retire en cualquier momento escribiendo a oscarmunozmonedero@gmail.com.</span></label>
+        <label class="check"><input type="checkbox" name="Autoriza publicar en redes sociales" value="Sí"><span>También autorizo que se comparta en el Instagram profesional <b>@oscarmunozasesoria</b>, con el mismo nombre o iniciales. (Opcional)</span></label>
+        <label class="check"><input type="checkbox" name="Acepta privacidad" value="Sí" required><span>He leído la <a href="#privacidad">política de privacidad</a> y acepto el tratamiento de mis datos para gestionar mi opinión.</span></label>
+      </div>
+      <div class="btns"><button class="btn primary" type="submit" id="op-send">Enviar mi opinión</button></div>
+      <p class="form-msg" id="op-msg" role="status" aria-live="polite"></p>
+      <p class="note">Las opiniones reflejan la experiencia personal de cada cliente. Cada caso es distinto: la concesión de una hipoteca y sus plazos dependen de la entidad financiera y del perfil de cada persona.</p>
+    </form>
+  </section>
+
   <section id="cita" class="band" data-tab="inicio">
     <span class="eyebrow">Cita</span>
     <h2>Reserva una reunión</h2>
@@ -783,6 +893,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       <div><dt>Finalidad</dt><dd>Atender tu solicitud de información, gestionar tus citas, elaborar el estudio y el dossier de tus necesidades, comparar y gestionar ofertas hipotecarias y prestarte los servicios de asesoría financiera que contrates. Si lo autorizas, enviarte información sobre estos servicios.</dd></div>
       <div><dt>Base jurídica</dt><dd>Aplicación de medidas precontractuales y ejecución del contrato (art. 6.1.b RGPD). Tu consentimiento (art. 6.1.a) para las comunicaciones y para presentar tu documentación a entidades. Cumplimiento de obligaciones legales (art. 6.1.c), como las fiscales y contables.</dd></div>
       <div><dt>Destinatarios</dt><dd>Solo las entidades financieras, notarías y otros profesionales a los que tú autorices presentar tu solicitud, y las administraciones cuando la ley lo exija. No cedo tus datos a terceros con fines comerciales.</dd></div>
+      <div><dt>Opiniones</dt><dd>Si me envías tu opinión desde el formulario de esta web, uso tu nombre o iniciales, tu valoración y tu texto para revisarla y, solo si lo autorizas, publicarla en esta web y, si también lo autorizas, en mi Instagram profesional (@oscarmunozasesoria). Tu correo no se publica. El formulario se envía a través del servicio Formsubmit (formsubmit.co), que me lo reenvía por correo electrónico. Base jurídica: tu consentimiento (art. 6.1.a RGPD), que puedes retirar en cualquier momento; en ese caso retiraré la opinión.</dd></div>
       <div><dt>Conservación</dt><dd>Mientras dure la relación y, después, durante los plazos legales de prescripción de posibles responsabilidades y de conservación de la documentación fiscal y contable.</dd></div>
       <div><dt>Seguridad</dt><dd>Trato tus datos con confidencialidad y aplico medidas técnicas y organizativas adecuadas para protegerlos.</dd></div>
       <div><dt>Tus derechos</dt><dd>Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo al correo indicado, con una copia de tu documento de identidad. Puedes retirar tu consentimiento en cualquier momento y presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</dd></div>
@@ -792,7 +903,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
 
   <footer>
     <span>© <span id="year">2026</span> Oscar Muñoz Monedero · Asesor financiero privado</span>
-    <span>NIF 47419438Q · <a href="#privacidad">Política de privacidad</a></span>
+    <span>NIF 47419438Q · <a href="#dejar-opinion">Deja tu opinión</a> · <a href="#privacidad">Política de privacidad</a></span>
   </footer>
 </div>
 
@@ -942,10 +1053,99 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
   $("year").textContent = new Date().getFullYear();
 })();
 </script>
+<script src="resenas.js"></script>
+<script>
+/* opiniones: se muestran las aprobadas en resenas.js; el formulario las envía por correo para revisarlas */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var list = Array.isArray(window.RESENAS) ? window.RESENAS.filter(function (r) { return r && r.texto && r.nombre; }) : [];
+  var MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  function stars(n) {
+    n = Math.max(0, Math.min(5, Math.round(n || 0)));
+    var s = document.createElement("span"); s.className = "stars"; s.setAttribute("aria-label", n + " de 5 estrellas");
+    s.innerHTML = "★★★★★".slice(0, n) + '<span class="off">' + "★★★★★".slice(0, 5 - n) + "</span>";
+    return s;
+  }
+  function fecha(f) {
+    var m = /^(\d{4})-(\d{1,2})/.exec(f || ""); return m ? MESES[+m[2] - 1] + " de " + m[1] : "";
+  }
+  if (list.length) {
+    var host = $("op-list");
+    list.forEach(function (r) {
+      var fig = document.createElement("figure"); fig.className = "op";
+      if (r.valoracion) fig.appendChild(stars(r.valoracion));
+      var q = document.createElement("blockquote"); q.textContent = r.texto; fig.appendChild(q);
+      var cap = document.createElement("figcaption"), b = document.createElement("b");
+      b.textContent = r.nombre; cap.appendChild(b);
+      cap.appendChild(document.createTextNode([r.perfil, r.servicio, fecha(r.fecha)].filter(Boolean).join(" · ")));
+      fig.appendChild(cap); host.appendChild(fig);
+    });
+    host.hidden = false; $("op-empty").hidden = true; $("op-cta").hidden = false;
+    var rated = list.filter(function (r) { return r.valoracion; });
+    if (rated.length >= 3) {
+      var avg = rated.reduce(function (a, r) { return a + r.valoracion; }, 0) / rated.length;
+      var sum = $("op-sum");
+      sum.innerHTML = "<strong>" + avg.toFixed(1).replace(".", ",") + "</strong>";
+      var d = document.createElement("div"); d.appendChild(stars(avg));
+      var t = document.createElement("span"); t.style.display = "block"; t.style.marginTop = "4px";
+      t.textContent = "Media de " + rated.length + " opiniones"; d.appendChild(t);
+      sum.appendChild(d); sum.hidden = false;
+    }
+  }
+
+  var form = $("dejar-opinion"), msg = $("op-msg"), send = $("op-send"), txt = $("op-texto");
+  function openForm() { form.hidden = false; }
+  // el formulario se abre al pulsar "Dejar mi opinión" o al llegar con #dejar-opinion
+  if (location.hash === "#dejar-opinion") openForm();
+  ["op-open", "op-open2"].forEach(function (id) { $(id).addEventListener("click", openForm); });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('a[href="#dejar-opinion"]') : null; if (a) openForm();
+  }, true);
+  window.addEventListener("hashchange", function () { if (location.hash === "#dejar-opinion") openForm(); });
+  txt.addEventListener("input", function () { $("op-count").textContent = txt.value.length + "/800"; });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    msg.className = "form-msg"; msg.textContent = "";
+    if (!form.checkValidity()) {
+      var bad = form.querySelector("input:invalid, select:invalid, textarea:invalid");
+      var why = "Revisa el formulario: ";
+      if (bad.name === "Valoración") why += "elige una valoración de 1 a 5 estrellas.";
+      else if (bad.type === "checkbox") why += "para enviarla necesito tu autorización de publicación en la web y que aceptes la política de privacidad.";
+      else if (bad.id === "op-texto") why += "la opinión debe tener al menos 20 caracteres.";
+      else if (bad.type === "email") why += "indica un correo electrónico válido.";
+      else why += "completa los campos obligatorios.";
+      msg.className = "form-msg err"; msg.textContent = why;
+      if (bad.focus) bad.focus();
+      return;
+    }
+    if (form.elements._honey.value) return;
+    var data = {};
+    Array.prototype.forEach.call(form.elements, function (el) {
+      if (!el.name || el.name === "_next" || el.name === "_honey") return;
+      if ((el.type === "checkbox" || el.type === "radio") && !el.checked) return;
+      data[el.name] = el.value;
+    });
+    if (!data["Autoriza publicar en redes sociales"]) data["Autoriza publicar en redes sociales"] = "No";
+    send.disabled = true; send.textContent = "Enviando…";
+    fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data)
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status); }); })
+      .then(function () {
+        form.innerHTML = '<div class="op-done"><h3>Gracias por tu opinión</h3><p>La he recibido correctamente. La revisaré y, si me has dado tu autorización, la publicaré en los próximos días con el nombre que has indicado. Si quieres cambiar algo o retirarla, escríbeme a oscarmunozmonedero@gmail.com.</p></div>';
+      })
+      .catch(function () {
+        send.disabled = false; send.textContent = "Enviar mi opinión";
+        msg.className = "form-msg err";
+        msg.innerHTML = 'No se ha podido enviar ahora mismo. Inténtalo de nuevo en unos minutos o envíamela por <a href="https://wa.me/34633166312" target="_blank" rel="noopener">WhatsApp</a> o a oscarmunozmonedero@gmail.com.';
+      });
+  });
+})();
+</script>
 <script>
 /* pestañas: cada enlace del menú muestra solo su parte de la web; la reserva de cita y el contacto van en Inicio */
 (function () {
-  var MAP = { "": "inicio", inicio: "inicio", cita: "inicio", contacto: "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
+  var MAP = { "": "inicio", inicio: "inicio", cita: "inicio", contacto: "inicio", opiniones: "inicio", "dejar-opinion": "inicio", "sobre-mi": "sobre-mi", servicios: "servicios", proceso: "servicios", honorarios: "servicios", hipotecas: "hipotecas", informe: "informe", plantilla: "informe", noticias: "noticias", actualidad: "noticias", privacidad: "privacidad" };
   var panels = document.querySelectorAll("[data-tab]"), links = document.querySelectorAll("[data-nav]"), cur = null;
   function show(tab) {
     if (tab === cur) return;

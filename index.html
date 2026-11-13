@@ -1,6 +1,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oscar Muñoz Asesor Financiero</title>
+<!-- Vercel Web Analytics: visitas sin cookies. Se activa en Vercel > proyecto > Analytics -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Lato:wght@400;700&display=swap">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1162,6 +1165,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
       method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data)
     }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status); }); })
       .then(function () {
+        window.va("event", { name: "Opinión enviada" });
         form.innerHTML = '<div class="op-done"><h3>Gracias por tu opinión</h3><p>La he recibido correctamente. La revisaré y, si me has dado tu autorización, la publicaré en los próximos días con el nombre que has indicado. Si quieres cambiar algo o retirarla, escríbeme a oscarmunozmonedero@gmail.com.</p></div>';
       })
       .catch(function () {
@@ -1170,6 +1174,26 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size:
         msg.innerHTML = 'No se ha podido enviar ahora mismo. Inténtalo de nuevo en unos minutos o envíamela por <a href="https://wa.me/34633166312" target="_blank" rel="noopener">WhatsApp</a> o a oscarmunozmonedero@gmail.com.';
       });
   });
+})();
+</script>
+<script>
+/* analítica: cuenta los clics que acaban en contacto (WhatsApp, calendario, descargas). Sin datos personales */
+(function () {
+  var RULES = [
+    [/wa\.me\//, "Clic WhatsApp"],
+    [/calendar\.app\.google/, "Abrir calendario"],
+    [/Cuestionario_Cliente\.xlsx$/, "Descargar cuestionario"],
+    [/Ejemplo_Informe_Cliente\.pdf$/, "Ver informe de ejemplo"],
+    [/#cita$/, "Ir a reservar cita"]
+  ];
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var href = a.getAttribute("href");
+    for (var i = 0; i < RULES.length; i++) {
+      if (RULES[i][0].test(href)) { window.va("event", { name: RULES[i][1] }); return; }
+    }
+  }, true);
 })();
 </script>
 <script>

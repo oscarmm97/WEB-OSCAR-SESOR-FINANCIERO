@@ -24,6 +24,14 @@
 */
 window.RESENAS = [
   {
+    nombre: "P.T.S",
+    perfil: "Particular",
+    servicio: "Informe financiero",
+    valoracion: 5,
+    fecha: "2026-11",
+    texto: "Muy profesional, solicité un informe financiero y lo hizo excelente, lo recomiendo."
+  },
+  {
     nombre: "Cliente",
     perfil: "Particular",
     servicio: "",

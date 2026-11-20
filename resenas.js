@@ -23,4 +23,12 @@
   Si hace falta, quita esos datos sin cambiar el sentido de la opinión.
 */
 window.RESENAS = [
+  {
+    nombre: "Cliente",
+    perfil: "Particular",
+    servicio: "",
+    valoracion: 5,
+    fecha: "2026-11",
+    texto: "Óscar es un gran profesional del cual he seguido su trayectoria y puedo asegurar que la eficiencia y efectividad que tiene son inigualables, me ha resuelto todas las dudas y me ha ayudado con mi proceso."
+  },
 ];

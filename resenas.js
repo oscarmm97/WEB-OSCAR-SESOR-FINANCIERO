@@ -24,6 +24,22 @@
 */
 window.RESENAS = [
   {
+    nombre: "Xavi",
+    perfil: "Particular",
+    servicio: "Gestión de hipoteca",
+    valoracion: 5,
+    fecha: "2026-11",
+    texto: "Oscar es un gran profesional, me ha ayudado a conseguir una hipoteca al 2.7 fija, cuando los tipos de interés están al 3. Lo recomendaría a cualquier persona que este buscando una hipoteca con las mejores condiciones y que le orienten en todo el proceso."
+  },
+  {
+    nombre: "Cliente",
+    perfil: "Particular",
+    servicio: "Gestión de hipoteca",
+    valoracion: 5,
+    fecha: "2026-11",
+    texto: "Antes no sabía por donde empezar, gracias al asesoramiento de Oscar sé que puedo, podemos dar pasos firmes hacia el objetivo de mi primera hipoteca."
+  },
+  {
     nombre: "P.T.S",
     perfil: "Particular",
     servicio: "Informe financiero",

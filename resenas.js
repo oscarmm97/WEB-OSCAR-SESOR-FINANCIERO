@@ -32,7 +32,7 @@ window.RESENAS = [
     texto: "Oscar es un gran profesional, me ha ayudado a conseguir una hipoteca al 2.7 fija, cuando los tipos de interés están al 3. Lo recomendaría a cualquier persona que este buscando una hipoteca con las mejores condiciones y que le orienten en todo el proceso."
   },
   {
-    nombre: "Cliente",
+    nombre: "Alejandro Ormenyo",
     perfil: "Particular",
     servicio: "Gestión de hipoteca",
     valoracion: 5,
